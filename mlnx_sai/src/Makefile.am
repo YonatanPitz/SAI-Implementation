@@ -47,6 +47,7 @@ libsai_la_SOURCES = \
                        dbgdump/mlnx_sai_dbg_wred.c \
                        dbgdump/mlnx_sai_dbg_bridge.c \
                        dbgdump/mlnx_sai_dbg_udf.c \
+                       mlnx_sai_bmtor.c \
                        mlnx_sai_acl.c \
                        mlnx_sai_bridge.c \
                        mlnx_sai_buffer.c \
@@ -136,6 +137,7 @@ libsai_apiinclude_HEADERS = \
         $(top_srcdir)/inc/sai/saivirtualrouter.h \
         $(top_srcdir)/inc/sai/saivlan.h \
         $(top_srcdir)/inc/sai/saiwred.h \
+        $(top_srcdir)/inc/sai/saibmtor.h \
         \
         $(top_srcdir)/inc/sai_windows.h \
         $(top_srcdir)/inc/mlnx_sai.h

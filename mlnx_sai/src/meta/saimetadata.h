@@ -233,6 +233,11 @@ extern const sai_enum_metadata_t sai_metadata_enum_sai_switch_mcast_snooping_cap
 extern const sai_enum_metadata_t sai_metadata_enum_sai_switch_oper_status_t;
 extern const sai_enum_metadata_t sai_metadata_enum_sai_switch_restart_type_t;
 extern const sai_enum_metadata_t sai_metadata_enum_sai_switch_switching_mode_t;
+extern const sai_enum_metadata_t sai_metadata_enum_sai_table_peering_entry_action_t;
+extern const sai_enum_metadata_t sai_metadata_enum_sai_table_peering_entry_attr_t;
+extern const sai_enum_metadata_t sai_metadata_enum_sai_table_vhost_entry_action_t;
+extern const sai_enum_metadata_t sai_metadata_enum_sai_table_vhost_entry_attr_t;
+extern const sai_enum_metadata_t sai_metadata_enum_sai_table_vhost_entry_stat_t;
 extern const sai_enum_metadata_t sai_metadata_enum_sai_tam_attr_t;
 extern const sai_enum_metadata_t sai_metadata_enum_sai_tam_histogram_attr_t;
 extern const sai_enum_metadata_t sai_metadata_enum_sai_tam_microburst_attr_t;
@@ -461,6 +466,12 @@ extern const char* sai_metadata_get_switch_restart_type_name(
         _In_ sai_switch_restart_type_t value);
 extern const char* sai_metadata_get_switch_switching_mode_name(
         _In_ sai_switch_switching_mode_t value);
+extern const char* sai_metadata_get_table_peering_entry_action_name(
+        _In_ sai_table_peering_entry_action_t value);
+extern const char* sai_metadata_get_table_vhost_entry_action_name(
+        _In_ sai_table_vhost_entry_action_t value);
+extern const char* sai_metadata_get_table_vhost_entry_stat_name(
+        _In_ sai_table_vhost_entry_stat_t value);
 extern const char* sai_metadata_get_tam_microburst_stat_name(
         _In_ sai_tam_microburst_stat_t value);
 extern const char* sai_metadata_get_tam_reporting_mode_name(
@@ -504,6 +515,7 @@ extern const char* sai_metadata_get_vlan_tagging_mode_name(
 
 extern sai_acl_api_t *sai_metadata_sai_acl_api;
 extern sai_bfd_api_t *sai_metadata_sai_bfd_api;
+extern sai_bmtor_api_t *sai_metadata_sai_bmtor_api;
 extern sai_bridge_api_t *sai_metadata_sai_bridge_api;
 extern sai_buffer_api_t *sai_metadata_sai_buffer_api;
 extern sai_dtel_api_t *sai_metadata_sai_dtel_api;
@@ -584,6 +596,7 @@ typedef struct _sai_apis_t {
     sai_uburst_api_t* uburst_api;
     sai_dtel_api_t* dtel_api;
     sai_bfd_api_t* bfd_api;
+    sai_bmtor_api_t* bmtor_api;
 } sai_apis_t;
 
 /* SAI API query */
@@ -672,6 +685,8 @@ extern const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYP
 extern const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_DTEL_REPORT_SESSION;
 extern const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_DTEL_EVENT;
 extern const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_BFD_SESSION;
+extern const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY;
+extern const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY;
 
 /* Object infos table */
 
@@ -995,6 +1010,15 @@ extern int sai_serialize_switch_restart_type(
 extern int sai_serialize_switch_switching_mode(
         _Out_ char *buffer,
         _In_ sai_switch_switching_mode_t switch_switching_mode);
+extern int sai_serialize_table_peering_entry_action(
+        _Out_ char *buffer,
+        _In_ sai_table_peering_entry_action_t table_peering_entry_action);
+extern int sai_serialize_table_vhost_entry_action(
+        _Out_ char *buffer,
+        _In_ sai_table_vhost_entry_action_t table_vhost_entry_action);
+extern int sai_serialize_table_vhost_entry_stat(
+        _Out_ char *buffer,
+        _In_ sai_table_vhost_entry_stat_t table_vhost_entry_stat);
 extern int sai_serialize_tam_microburst_stat(
         _Out_ char *buffer,
         _In_ sai_tam_microburst_stat_t tam_microburst_stat);

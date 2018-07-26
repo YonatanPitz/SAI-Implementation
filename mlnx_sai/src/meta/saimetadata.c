@@ -1086,6 +1086,7 @@ const sai_api_t sai_metadata_sai_api_t_enum_values[] = {
     SAI_API_UBURST,
     SAI_API_DTEL,
     SAI_API_BFD,
+    SAI_API_BMTOR,
     -1
 };
 const char* const sai_metadata_sai_api_t_enum_values_names[] = {
@@ -1129,6 +1130,7 @@ const char* const sai_metadata_sai_api_t_enum_values_names[] = {
     "SAI_API_UBURST",
     "SAI_API_DTEL",
     "SAI_API_BFD",
+    "SAI_API_BMTOR",
     NULL
 };
 const char* const sai_metadata_sai_api_t_enum_values_short_names[] = {
@@ -1172,11 +1174,12 @@ const char* const sai_metadata_sai_api_t_enum_values_short_names[] = {
     "UBURST",
     "DTEL",
     "BFD",
+    "BMTOR",
     NULL
 };
 const sai_enum_metadata_t sai_metadata_enum_sai_api_t = {
     .name              = "sai_api_t",
-    .valuescount       = 40,
+    .valuescount       = 41,
     .values            = (const int*)sai_metadata_sai_api_t_enum_values,
     .valuesnames       = sai_metadata_sai_api_t_enum_values_names,
     .valuesshortnames  = sai_metadata_sai_api_t_enum_values_short_names,
@@ -4244,6 +4247,8 @@ const sai_object_type_t sai_metadata_sai_object_type_t_enum_values[] = {
     SAI_OBJECT_TYPE_DTEL_REPORT_SESSION,
     SAI_OBJECT_TYPE_DTEL_EVENT,
     SAI_OBJECT_TYPE_BFD_SESSION,
+    SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY,
+    SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
     -1
 };
 const char* const sai_metadata_sai_object_type_t_enum_values_names[] = {
@@ -4323,6 +4328,8 @@ const char* const sai_metadata_sai_object_type_t_enum_values_names[] = {
     "SAI_OBJECT_TYPE_DTEL_REPORT_SESSION",
     "SAI_OBJECT_TYPE_DTEL_EVENT",
     "SAI_OBJECT_TYPE_BFD_SESSION",
+    "SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY",
+    "SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY",
     NULL
 };
 const char* const sai_metadata_sai_object_type_t_enum_values_short_names[] = {
@@ -4402,11 +4409,13 @@ const char* const sai_metadata_sai_object_type_t_enum_values_short_names[] = {
     "DTEL_REPORT_SESSION",
     "DTEL_EVENT",
     "BFD_SESSION",
+    "TABLE_PEERING_ENTRY",
+    "TABLE_VHOST_ENTRY",
     NULL
 };
 const sai_enum_metadata_t sai_metadata_enum_sai_object_type_t = {
     .name              = "sai_object_type_t",
-    .valuescount       = 76,
+    .valuescount       = 78,
     .values            = (const int*)sai_metadata_sai_object_type_t_enum_values,
     .valuesnames       = sai_metadata_sai_object_type_t_enum_values_names,
     .valuesshortnames  = sai_metadata_sai_object_type_t_enum_values_short_names,
@@ -7340,6 +7349,160 @@ const sai_enum_metadata_t sai_metadata_enum_sai_switch_switching_mode_t = {
     .valuesshortnames  = sai_metadata_sai_switch_switching_mode_t_enum_values_short_names,
     .containsflags     = false,
 };
+const sai_table_peering_entry_action_t sai_metadata_sai_table_peering_entry_action_t_enum_values[] = {
+    SAI_TABLE_PEERING_ENTRY_ACTION_SET_VNET_BITMAP,
+    SAI_TABLE_PEERING_ENTRY_ACTION_NOACTION,
+    -1
+};
+const char* const sai_metadata_sai_table_peering_entry_action_t_enum_values_names[] = {
+    "SAI_TABLE_PEERING_ENTRY_ACTION_SET_VNET_BITMAP",
+    "SAI_TABLE_PEERING_ENTRY_ACTION_NOACTION",
+    NULL
+};
+const char* const sai_metadata_sai_table_peering_entry_action_t_enum_values_short_names[] = {
+    "SET_VNET_BITMAP",
+    "NOACTION",
+    NULL
+};
+const sai_enum_metadata_t sai_metadata_enum_sai_table_peering_entry_action_t = {
+    .name              = "sai_table_peering_entry_action_t",
+    .valuescount       = 2,
+    .values            = (const int*)sai_metadata_sai_table_peering_entry_action_t_enum_values,
+    .valuesnames       = sai_metadata_sai_table_peering_entry_action_t_enum_values_names,
+    .valuesshortnames  = sai_metadata_sai_table_peering_entry_action_t_enum_values_short_names,
+    .containsflags     = false,
+};
+const sai_table_peering_entry_attr_t sai_metadata_sai_table_peering_entry_attr_t_enum_values[] = {
+    SAI_TABLE_PEERING_ENTRY_ATTR_ACTION,
+    SAI_TABLE_PEERING_ENTRY_ATTR_SRC_PORT,
+    SAI_TABLE_PEERING_ENTRY_ATTR_IS_DEFAULT,
+    SAI_TABLE_PEERING_ENTRY_ATTR_META_REG,
+    -1
+};
+const char* const sai_metadata_sai_table_peering_entry_attr_t_enum_values_names[] = {
+    "SAI_TABLE_PEERING_ENTRY_ATTR_ACTION",
+    "SAI_TABLE_PEERING_ENTRY_ATTR_SRC_PORT",
+    "SAI_TABLE_PEERING_ENTRY_ATTR_IS_DEFAULT",
+    "SAI_TABLE_PEERING_ENTRY_ATTR_META_REG",
+    NULL
+};
+const char* const sai_metadata_sai_table_peering_entry_attr_t_enum_values_short_names[] = {
+    "ACTION",
+    "SRC_PORT",
+    "IS_DEFAULT",
+    "META_REG",
+    NULL
+};
+const sai_enum_metadata_t sai_metadata_enum_sai_table_peering_entry_attr_t = {
+    .name              = "sai_table_peering_entry_attr_t",
+    .valuescount       = 4,
+    .values            = (const int*)sai_metadata_sai_table_peering_entry_attr_t_enum_values,
+    .valuesnames       = sai_metadata_sai_table_peering_entry_attr_t_enum_values_names,
+    .valuesshortnames  = sai_metadata_sai_table_peering_entry_attr_t_enum_values_short_names,
+    .containsflags     = false,
+};
+const sai_table_vhost_entry_action_t sai_metadata_sai_table_vhost_entry_action_t_enum_values[] = {
+    SAI_TABLE_VHOST_ENTRY_ACTION_TO_TUNNEL,
+    SAI_TABLE_VHOST_ENTRY_ACTION_TO_ROUTER,
+    SAI_TABLE_VHOST_ENTRY_ACTION_TO_PORT,
+    SAI_TABLE_VHOST_ENTRY_ACTION_NOACTION,
+    -1
+};
+const char* const sai_metadata_sai_table_vhost_entry_action_t_enum_values_names[] = {
+    "SAI_TABLE_VHOST_ENTRY_ACTION_TO_TUNNEL",
+    "SAI_TABLE_VHOST_ENTRY_ACTION_TO_ROUTER",
+    "SAI_TABLE_VHOST_ENTRY_ACTION_TO_PORT",
+    "SAI_TABLE_VHOST_ENTRY_ACTION_NOACTION",
+    NULL
+};
+const char* const sai_metadata_sai_table_vhost_entry_action_t_enum_values_short_names[] = {
+    "TO_TUNNEL",
+    "TO_ROUTER",
+    "TO_PORT",
+    "NOACTION",
+    NULL
+};
+const sai_enum_metadata_t sai_metadata_enum_sai_table_vhost_entry_action_t = {
+    .name              = "sai_table_vhost_entry_action_t",
+    .valuescount       = 4,
+    .values            = (const int*)sai_metadata_sai_table_vhost_entry_action_t_enum_values,
+    .valuesnames       = sai_metadata_sai_table_vhost_entry_action_t_enum_values_names,
+    .valuesshortnames  = sai_metadata_sai_table_vhost_entry_action_t_enum_values_short_names,
+    .containsflags     = false,
+};
+const sai_table_vhost_entry_attr_t sai_metadata_sai_table_vhost_entry_attr_t_enum_values[] = {
+    SAI_TABLE_VHOST_ENTRY_ATTR_ACTION,
+    SAI_TABLE_VHOST_ENTRY_ATTR_PRIORITY,
+    SAI_TABLE_VHOST_ENTRY_ATTR_META_REG_KEY,
+    SAI_TABLE_VHOST_ENTRY_ATTR_META_REG_MASK,
+    SAI_TABLE_VHOST_ENTRY_ATTR_DST_IP,
+    SAI_TABLE_VHOST_ENTRY_ATTR_IS_DEFAULT,
+    SAI_TABLE_VHOST_ENTRY_ATTR_BRIDGE_ID,
+    SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID,
+    SAI_TABLE_VHOST_ENTRY_ATTR_UNDERLAY_DIP,
+    SAI_TABLE_VHOST_ENTRY_ATTR_VR_ID,
+    SAI_TABLE_VHOST_ENTRY_ATTR_PORT_ID,
+    -1
+};
+const char* const sai_metadata_sai_table_vhost_entry_attr_t_enum_values_names[] = {
+    "SAI_TABLE_VHOST_ENTRY_ATTR_ACTION",
+    "SAI_TABLE_VHOST_ENTRY_ATTR_PRIORITY",
+    "SAI_TABLE_VHOST_ENTRY_ATTR_META_REG_KEY",
+    "SAI_TABLE_VHOST_ENTRY_ATTR_META_REG_MASK",
+    "SAI_TABLE_VHOST_ENTRY_ATTR_DST_IP",
+    "SAI_TABLE_VHOST_ENTRY_ATTR_IS_DEFAULT",
+    "SAI_TABLE_VHOST_ENTRY_ATTR_BRIDGE_ID",
+    "SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID",
+    "SAI_TABLE_VHOST_ENTRY_ATTR_UNDERLAY_DIP",
+    "SAI_TABLE_VHOST_ENTRY_ATTR_VR_ID",
+    "SAI_TABLE_VHOST_ENTRY_ATTR_PORT_ID",
+    NULL
+};
+const char* const sai_metadata_sai_table_vhost_entry_attr_t_enum_values_short_names[] = {
+    "ACTION",
+    "PRIORITY",
+    "META_REG_KEY",
+    "META_REG_MASK",
+    "DST_IP",
+    "IS_DEFAULT",
+    "BRIDGE_ID",
+    "TUNNEL_ID",
+    "UNDERLAY_DIP",
+    "VR_ID",
+    "PORT_ID",
+    NULL
+};
+const sai_enum_metadata_t sai_metadata_enum_sai_table_vhost_entry_attr_t = {
+    .name              = "sai_table_vhost_entry_attr_t",
+    .valuescount       = 11,
+    .values            = (const int*)sai_metadata_sai_table_vhost_entry_attr_t_enum_values,
+    .valuesnames       = sai_metadata_sai_table_vhost_entry_attr_t_enum_values_names,
+    .valuesshortnames  = sai_metadata_sai_table_vhost_entry_attr_t_enum_values_short_names,
+    .containsflags     = false,
+};
+const sai_table_vhost_entry_stat_t sai_metadata_sai_table_vhost_entry_stat_t_enum_values[] = {
+    SAI_TABLE_VHOST_ENTRY_STAT_HIT_PACKETS,
+    SAI_TABLE_VHOST_ENTRY_STAT_HIT_OCTETS,
+    -1
+};
+const char* const sai_metadata_sai_table_vhost_entry_stat_t_enum_values_names[] = {
+    "SAI_TABLE_VHOST_ENTRY_STAT_HIT_PACKETS",
+    "SAI_TABLE_VHOST_ENTRY_STAT_HIT_OCTETS",
+    NULL
+};
+const char* const sai_metadata_sai_table_vhost_entry_stat_t_enum_values_short_names[] = {
+    "HIT_PACKETS",
+    "HIT_OCTETS",
+    NULL
+};
+const sai_enum_metadata_t sai_metadata_enum_sai_table_vhost_entry_stat_t = {
+    .name              = "sai_table_vhost_entry_stat_t",
+    .valuescount       = 2,
+    .values            = (const int*)sai_metadata_sai_table_vhost_entry_stat_t_enum_values,
+    .valuesnames       = sai_metadata_sai_table_vhost_entry_stat_t_enum_values_names,
+    .valuesshortnames  = sai_metadata_sai_table_vhost_entry_stat_t_enum_values_short_names,
+    .containsflags     = false,
+};
 const sai_tam_attr_t sai_metadata_sai_tam_attr_t_enum_values[] = {
     SAI_TAM_ATTR_BUFFER_TRACKING_ADMIN_STATE,
     SAI_TAM_ATTR_BUFFER_REPORTING_MODE,
@@ -8766,6 +8929,11 @@ const sai_enum_metadata_t* const sai_metadata_all_enums[] = {
     &sai_metadata_enum_sai_switch_oper_status_t,
     &sai_metadata_enum_sai_switch_restart_type_t,
     &sai_metadata_enum_sai_switch_switching_mode_t,
+    &sai_metadata_enum_sai_table_peering_entry_action_t,
+    &sai_metadata_enum_sai_table_peering_entry_attr_t,
+    &sai_metadata_enum_sai_table_vhost_entry_action_t,
+    &sai_metadata_enum_sai_table_vhost_entry_attr_t,
+    &sai_metadata_enum_sai_table_vhost_entry_stat_t,
     &sai_metadata_enum_sai_tam_attr_t,
     &sai_metadata_enum_sai_tam_histogram_attr_t,
     &sai_metadata_enum_sai_tam_microburst_attr_t,
@@ -8805,7 +8973,7 @@ const sai_enum_metadata_t* const sai_metadata_all_enums[] = {
     &sai_metadata_enum_sai_wred_attr_t,
     NULL
 };
-const size_t sai_metadata_all_enums_count = 185;
+const size_t sai_metadata_all_enums_count = 190;
 const sai_enum_metadata_t* const sai_metadata_attr_enums[] = {
     &sai_metadata_enum_sai_acl_counter_attr_t,
     &sai_metadata_enum_sai_acl_entry_attr_t,
@@ -8864,6 +9032,8 @@ const sai_enum_metadata_t* const sai_metadata_attr_enums[] = {
     &sai_metadata_enum_sai_stp_attr_t,
     &sai_metadata_enum_sai_stp_port_attr_t,
     &sai_metadata_enum_sai_switch_attr_t,
+    &sai_metadata_enum_sai_table_peering_entry_attr_t,
+    &sai_metadata_enum_sai_table_vhost_entry_attr_t,
     &sai_metadata_enum_sai_tam_attr_t,
     &sai_metadata_enum_sai_tam_histogram_attr_t,
     &sai_metadata_enum_sai_tam_microburst_attr_t,
@@ -8884,7 +9054,7 @@ const sai_enum_metadata_t* const sai_metadata_attr_enums[] = {
     &sai_metadata_enum_sai_wred_attr_t,
     NULL
 };
-const size_t sai_metadata_attr_enums_count = 75;
+const size_t sai_metadata_attr_enums_count = 77;
 const sai_object_type_t sai_metadata_object_types[] = {
     SAI_OBJECT_TYPE_ACL_COUNTER,
     SAI_OBJECT_TYPE_ACL_ENTRY,
@@ -8943,6 +9113,8 @@ const sai_object_type_t sai_metadata_object_types[] = {
     SAI_OBJECT_TYPE_STP,
     SAI_OBJECT_TYPE_STP_PORT,
     SAI_OBJECT_TYPE_SWITCH,
+    SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY,
+    SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
     SAI_OBJECT_TYPE_TAM,
     SAI_OBJECT_TYPE_TAM_HISTOGRAM,
     SAI_OBJECT_TYPE_TAM_MICROBURST,
@@ -40552,6 +40724,701 @@ const sai_attr_metadata_t sai_metadata_attr_SAI_SWITCH_ATTR_UNINIT_DATA_PLANE_ON
     .isprimitive                   = true,
     .notificationtype              = -1,
 };
+const sai_attr_metadata_t sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_ACTION = {
+    .objecttype                    = SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY,
+    .attrid                        = SAI_TABLE_PEERING_ENTRY_ATTR_ACTION,
+    .attridname                    = "SAI_TABLE_PEERING_ENTRY_ATTR_ACTION",
+    .brief                         = "Action.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_INT32,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_MANDATORY_ON_CREATE|SAI_ATTR_FLAGS_CREATE_ONLY),
+    .allowedobjecttypes            = NULL,
+    .allowedobjecttypeslength      = 0,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (0 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
+    .defaultvalue                  = NULL,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = true,
+    .isenumlist                    = false,
+    .enummetadata                  = &sai_metadata_enum_sai_table_peering_entry_action_t,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .conditions                    = NULL,
+    .conditionslength              = 0,
+    .isconditional                 = (0 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = true,
+    .iscreateonly                  = true,
+    .iscreateandset                = false,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
+const sai_object_type_t sai_metadata_SAI_TABLE_PEERING_ENTRY_ATTR_SRC_PORT_allowed_objects[] = {
+    SAI_OBJECT_TYPE_PORT,
+};
+const sai_attr_metadata_t sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_SRC_PORT = {
+    .objecttype                    = SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY,
+    .attrid                        = SAI_TABLE_PEERING_ENTRY_ATTR_SRC_PORT,
+    .attridname                    = "SAI_TABLE_PEERING_ENTRY_ATTR_SRC_PORT",
+    .brief                         = "Matched key src_port.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_OBJECT_ID,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_MANDATORY_ON_CREATE|SAI_ATTR_FLAGS_CREATE_ONLY),
+    .allowedobjecttypes            = sai_metadata_SAI_TABLE_PEERING_ENTRY_ATTR_SRC_PORT_allowed_objects,
+    .allowedobjecttypeslength      = 1,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (1 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
+    .defaultvalue                  = NULL,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .conditions                    = NULL,
+    .conditionslength              = 0,
+    .isconditional                 = (0 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = true,
+    .iscreateonly                  = true,
+    .iscreateandset                = false,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
+const sai_attribute_value_t sai_metadata_SAI_TABLE_PEERING_ENTRY_ATTR_IS_DEFAULT_default_value = { .booldata = false };
+const sai_attr_metadata_t sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_IS_DEFAULT = {
+    .objecttype                    = SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY,
+    .attrid                        = SAI_TABLE_PEERING_ENTRY_ATTR_IS_DEFAULT,
+    .attridname                    = "SAI_TABLE_PEERING_ENTRY_ATTR_IS_DEFAULT",
+    .brief                         = "Is default entry.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_BOOL,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_CREATE_ONLY),
+    .allowedobjecttypes            = NULL,
+    .allowedobjecttypeslength      = 0,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (0 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_CONST,
+    .defaultvalue                  = &sai_metadata_SAI_TABLE_PEERING_ENTRY_ATTR_IS_DEFAULT_default_value,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .conditions                    = NULL,
+    .conditionslength              = 0,
+    .isconditional                 = (0 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = false,
+    .iscreateonly                  = true,
+    .iscreateandset                = false,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
+const sai_attr_condition_t sai_metadata_condition_SAI_TABLE_PEERING_ENTRY_ATTR_META_REG_0 = {
+    .attrid = SAI_TABLE_PEERING_ENTRY_ATTR_ACTION,
+    .condition = { .s32 = SAI_TABLE_PEERING_ENTRY_ACTION_SET_VNET_BITMAP }
+};
+const sai_attr_condition_t* const sai_metadata_conditions_SAI_TABLE_PEERING_ENTRY_ATTR_META_REG[] = {
+    &sai_metadata_condition_SAI_TABLE_PEERING_ENTRY_ATTR_META_REG_0,
+    NULL
+};
+const sai_attr_metadata_t sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_META_REG = {
+    .objecttype                    = SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY,
+    .attrid                        = SAI_TABLE_PEERING_ENTRY_ATTR_META_REG,
+    .attridname                    = "SAI_TABLE_PEERING_ENTRY_ATTR_META_REG",
+    .brief                         = "Action set_vnet_bitmap parameter meta_reg.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_UINT16,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_MANDATORY_ON_CREATE|SAI_ATTR_FLAGS_CREATE_ONLY),
+    .allowedobjecttypes            = NULL,
+    .allowedobjecttypeslength      = 0,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (0 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
+    .defaultvalue                  = NULL,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_OR,
+    .conditions                    = sai_metadata_conditions_SAI_TABLE_PEERING_ENTRY_ATTR_META_REG,
+    .conditionslength              = 1,
+    .isconditional                 = (1 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = true,
+    .iscreateonly                  = true,
+    .iscreateandset                = false,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
+const sai_attr_metadata_t sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_ACTION = {
+    .objecttype                    = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .attrid                        = SAI_TABLE_VHOST_ENTRY_ATTR_ACTION,
+    .attridname                    = "SAI_TABLE_VHOST_ENTRY_ATTR_ACTION",
+    .brief                         = "Action.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_INT32,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_MANDATORY_ON_CREATE|SAI_ATTR_FLAGS_CREATE_ONLY),
+    .allowedobjecttypes            = NULL,
+    .allowedobjecttypeslength      = 0,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (0 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
+    .defaultvalue                  = NULL,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = true,
+    .isenumlist                    = false,
+    .enummetadata                  = &sai_metadata_enum_sai_table_vhost_entry_action_t,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .conditions                    = NULL,
+    .conditionslength              = 0,
+    .isconditional                 = (0 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = true,
+    .iscreateonly                  = true,
+    .iscreateandset                = false,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
+const sai_attr_metadata_t sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_PRIORITY = {
+    .objecttype                    = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .attrid                        = SAI_TABLE_VHOST_ENTRY_ATTR_PRIORITY,
+    .attridname                    = "SAI_TABLE_VHOST_ENTRY_ATTR_PRIORITY",
+    .brief                         = "Rule priority in table.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_UINT32,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_MANDATORY_ON_CREATE|SAI_ATTR_FLAGS_CREATE_ONLY),
+    .allowedobjecttypes            = NULL,
+    .allowedobjecttypeslength      = 0,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (0 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
+    .defaultvalue                  = NULL,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .conditions                    = NULL,
+    .conditionslength              = 0,
+    .isconditional                 = (0 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = true,
+    .iscreateonly                  = true,
+    .iscreateandset                = false,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
+const sai_attr_metadata_t sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_META_REG_KEY = {
+    .objecttype                    = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .attrid                        = SAI_TABLE_VHOST_ENTRY_ATTR_META_REG_KEY,
+    .attridname                    = "SAI_TABLE_VHOST_ENTRY_ATTR_META_REG_KEY",
+    .brief                         = "Matched key meta_reg (key)",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_UINT16,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_MANDATORY_ON_CREATE|SAI_ATTR_FLAGS_CREATE_ONLY),
+    .allowedobjecttypes            = NULL,
+    .allowedobjecttypeslength      = 0,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (0 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
+    .defaultvalue                  = NULL,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .conditions                    = NULL,
+    .conditionslength              = 0,
+    .isconditional                 = (0 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = true,
+    .iscreateonly                  = true,
+    .iscreateandset                = false,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
+const sai_attr_metadata_t sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_META_REG_MASK = {
+    .objecttype                    = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .attrid                        = SAI_TABLE_VHOST_ENTRY_ATTR_META_REG_MASK,
+    .attridname                    = "SAI_TABLE_VHOST_ENTRY_ATTR_META_REG_MASK",
+    .brief                         = "Matched key meta_reg (mask)",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_UINT16,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_MANDATORY_ON_CREATE|SAI_ATTR_FLAGS_CREATE_ONLY),
+    .allowedobjecttypes            = NULL,
+    .allowedobjecttypeslength      = 0,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (0 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
+    .defaultvalue                  = NULL,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .conditions                    = NULL,
+    .conditionslength              = 0,
+    .isconditional                 = (0 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = true,
+    .iscreateonly                  = true,
+    .iscreateandset                = false,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
+const sai_attr_metadata_t sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_DST_IP = {
+    .objecttype                    = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .attrid                        = SAI_TABLE_VHOST_ENTRY_ATTR_DST_IP,
+    .attridname                    = "SAI_TABLE_VHOST_ENTRY_ATTR_DST_IP",
+    .brief                         = "Matched key dst_ip.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_IP_ADDRESS,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_MANDATORY_ON_CREATE|SAI_ATTR_FLAGS_CREATE_ONLY),
+    .allowedobjecttypes            = NULL,
+    .allowedobjecttypeslength      = 0,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (0 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
+    .defaultvalue                  = NULL,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .conditions                    = NULL,
+    .conditionslength              = 0,
+    .isconditional                 = (0 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = true,
+    .iscreateonly                  = true,
+    .iscreateandset                = false,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
+const sai_attribute_value_t sai_metadata_SAI_TABLE_VHOST_ENTRY_ATTR_IS_DEFAULT_default_value = { .booldata = false };
+const sai_attr_metadata_t sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_IS_DEFAULT = {
+    .objecttype                    = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .attrid                        = SAI_TABLE_VHOST_ENTRY_ATTR_IS_DEFAULT,
+    .attridname                    = "SAI_TABLE_VHOST_ENTRY_ATTR_IS_DEFAULT",
+    .brief                         = "Is default entry.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_BOOL,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_CREATE_ONLY),
+    .allowedobjecttypes            = NULL,
+    .allowedobjecttypeslength      = 0,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (0 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_CONST,
+    .defaultvalue                  = &sai_metadata_SAI_TABLE_VHOST_ENTRY_ATTR_IS_DEFAULT_default_value,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .conditions                    = NULL,
+    .conditionslength              = 0,
+    .isconditional                 = (0 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = false,
+    .iscreateonly                  = true,
+    .iscreateandset                = false,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
+const sai_object_type_t sai_metadata_SAI_TABLE_VHOST_ENTRY_ATTR_BRIDGE_ID_allowed_objects[] = {
+    SAI_OBJECT_TYPE_BRIDGE,
+};
+const sai_attr_condition_t sai_metadata_condition_SAI_TABLE_VHOST_ENTRY_ATTR_BRIDGE_ID_0 = {
+    .attrid = SAI_TABLE_VHOST_ENTRY_ATTR_ACTION,
+    .condition = { .s32 = SAI_TABLE_VHOST_ENTRY_ACTION_TO_TUNNEL }
+};
+const sai_attr_condition_t* const sai_metadata_conditions_SAI_TABLE_VHOST_ENTRY_ATTR_BRIDGE_ID[] = {
+    &sai_metadata_condition_SAI_TABLE_VHOST_ENTRY_ATTR_BRIDGE_ID_0,
+    NULL
+};
+const sai_attr_metadata_t sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_BRIDGE_ID = {
+    .objecttype                    = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .attrid                        = SAI_TABLE_VHOST_ENTRY_ATTR_BRIDGE_ID,
+    .attridname                    = "SAI_TABLE_VHOST_ENTRY_ATTR_BRIDGE_ID",
+    .brief                         = "Action to_tunnel parameter bridge_id.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_OBJECT_ID,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_MANDATORY_ON_CREATE|SAI_ATTR_FLAGS_CREATE_ONLY),
+    .allowedobjecttypes            = sai_metadata_SAI_TABLE_VHOST_ENTRY_ATTR_BRIDGE_ID_allowed_objects,
+    .allowedobjecttypeslength      = 1,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (1 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
+    .defaultvalue                  = NULL,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_OR,
+    .conditions                    = sai_metadata_conditions_SAI_TABLE_VHOST_ENTRY_ATTR_BRIDGE_ID,
+    .conditionslength              = 1,
+    .isconditional                 = (1 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = true,
+    .iscreateonly                  = true,
+    .iscreateandset                = false,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
+const sai_object_type_t sai_metadata_SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID_allowed_objects[] = {
+    SAI_OBJECT_TYPE_TUNNEL,
+};
+const sai_attr_condition_t sai_metadata_condition_SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID_0 = {
+    .attrid = SAI_TABLE_VHOST_ENTRY_ATTR_ACTION,
+    .condition = { .s32 = SAI_TABLE_VHOST_ENTRY_ACTION_TO_TUNNEL }
+};
+const sai_attr_condition_t* const sai_metadata_conditions_SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID[] = {
+    &sai_metadata_condition_SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID_0,
+    NULL
+};
+const sai_attr_metadata_t sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID = {
+    .objecttype                    = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .attrid                        = SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID,
+    .attridname                    = "SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID",
+    .brief                         = "Action to_tunnel parameter tunnel_id.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_OBJECT_ID,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_MANDATORY_ON_CREATE|SAI_ATTR_FLAGS_CREATE_ONLY),
+    .allowedobjecttypes            = sai_metadata_SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID_allowed_objects,
+    .allowedobjecttypeslength      = 1,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (1 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
+    .defaultvalue                  = NULL,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_OR,
+    .conditions                    = sai_metadata_conditions_SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID,
+    .conditionslength              = 1,
+    .isconditional                 = (1 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = true,
+    .iscreateonly                  = true,
+    .iscreateandset                = false,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
+const sai_attr_condition_t sai_metadata_condition_SAI_TABLE_VHOST_ENTRY_ATTR_UNDERLAY_DIP_0 = {
+    .attrid = SAI_TABLE_VHOST_ENTRY_ATTR_ACTION,
+    .condition = { .s32 = SAI_TABLE_VHOST_ENTRY_ACTION_TO_TUNNEL }
+};
+const sai_attr_condition_t* const sai_metadata_conditions_SAI_TABLE_VHOST_ENTRY_ATTR_UNDERLAY_DIP[] = {
+    &sai_metadata_condition_SAI_TABLE_VHOST_ENTRY_ATTR_UNDERLAY_DIP_0,
+    NULL
+};
+const sai_attr_metadata_t sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_UNDERLAY_DIP = {
+    .objecttype                    = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .attrid                        = SAI_TABLE_VHOST_ENTRY_ATTR_UNDERLAY_DIP,
+    .attridname                    = "SAI_TABLE_VHOST_ENTRY_ATTR_UNDERLAY_DIP",
+    .brief                         = "Action to_tunnel parameter underlay_dip.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_IP_ADDRESS,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_MANDATORY_ON_CREATE|SAI_ATTR_FLAGS_CREATE_ONLY),
+    .allowedobjecttypes            = NULL,
+    .allowedobjecttypeslength      = 0,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (0 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
+    .defaultvalue                  = NULL,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_OR,
+    .conditions                    = sai_metadata_conditions_SAI_TABLE_VHOST_ENTRY_ATTR_UNDERLAY_DIP,
+    .conditionslength              = 1,
+    .isconditional                 = (1 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = true,
+    .iscreateonly                  = true,
+    .iscreateandset                = false,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
+const sai_object_type_t sai_metadata_SAI_TABLE_VHOST_ENTRY_ATTR_VR_ID_allowed_objects[] = {
+    SAI_OBJECT_TYPE_VIRTUAL_ROUTER,
+};
+const sai_attr_condition_t sai_metadata_condition_SAI_TABLE_VHOST_ENTRY_ATTR_VR_ID_0 = {
+    .attrid = SAI_TABLE_VHOST_ENTRY_ATTR_ACTION,
+    .condition = { .s32 = SAI_TABLE_VHOST_ENTRY_ACTION_TO_ROUTER }
+};
+const sai_attr_condition_t* const sai_metadata_conditions_SAI_TABLE_VHOST_ENTRY_ATTR_VR_ID[] = {
+    &sai_metadata_condition_SAI_TABLE_VHOST_ENTRY_ATTR_VR_ID_0,
+    NULL
+};
+const sai_attr_metadata_t sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_VR_ID = {
+    .objecttype                    = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .attrid                        = SAI_TABLE_VHOST_ENTRY_ATTR_VR_ID,
+    .attridname                    = "SAI_TABLE_VHOST_ENTRY_ATTR_VR_ID",
+    .brief                         = "Action to_router parameter vr_id.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_OBJECT_ID,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_MANDATORY_ON_CREATE|SAI_ATTR_FLAGS_CREATE_ONLY),
+    .allowedobjecttypes            = sai_metadata_SAI_TABLE_VHOST_ENTRY_ATTR_VR_ID_allowed_objects,
+    .allowedobjecttypeslength      = 1,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (1 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
+    .defaultvalue                  = NULL,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_OR,
+    .conditions                    = sai_metadata_conditions_SAI_TABLE_VHOST_ENTRY_ATTR_VR_ID,
+    .conditionslength              = 1,
+    .isconditional                 = (1 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = true,
+    .iscreateonly                  = true,
+    .iscreateandset                = false,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
+const sai_object_type_t sai_metadata_SAI_TABLE_VHOST_ENTRY_ATTR_PORT_ID_allowed_objects[] = {
+    SAI_OBJECT_TYPE_PORT,
+};
+const sai_attr_condition_t sai_metadata_condition_SAI_TABLE_VHOST_ENTRY_ATTR_PORT_ID_0 = {
+    .attrid = SAI_TABLE_VHOST_ENTRY_ATTR_ACTION,
+    .condition = { .s32 = SAI_TABLE_VHOST_ENTRY_ACTION_TO_PORT }
+};
+const sai_attr_condition_t* const sai_metadata_conditions_SAI_TABLE_VHOST_ENTRY_ATTR_PORT_ID[] = {
+    &sai_metadata_condition_SAI_TABLE_VHOST_ENTRY_ATTR_PORT_ID_0,
+    NULL
+};
+const sai_attr_metadata_t sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_PORT_ID = {
+    .objecttype                    = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .attrid                        = SAI_TABLE_VHOST_ENTRY_ATTR_PORT_ID,
+    .attridname                    = "SAI_TABLE_VHOST_ENTRY_ATTR_PORT_ID",
+    .brief                         = "Action to_port parameter port_id.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_OBJECT_ID,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_MANDATORY_ON_CREATE|SAI_ATTR_FLAGS_CREATE_ONLY),
+    .allowedobjecttypes            = sai_metadata_SAI_TABLE_VHOST_ENTRY_ATTR_PORT_ID_allowed_objects,
+    .allowedobjecttypeslength      = 1,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (1 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
+    .defaultvalue                  = NULL,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_OR,
+    .conditions                    = sai_metadata_conditions_SAI_TABLE_VHOST_ENTRY_ATTR_PORT_ID,
+    .conditionslength              = 1,
+    .isconditional                 = (1 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = true,
+    .iscreateonly                  = true,
+    .iscreateandset                = false,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
 const sai_attribute_value_t sai_metadata_SAI_TAM_ATTR_BUFFER_TRACKING_ADMIN_STATE_default_value = { .booldata = true };
 const sai_attr_metadata_t sai_metadata_attr_SAI_TAM_ATTR_BUFFER_TRACKING_ADMIN_STATE = {
     .objecttype                    = SAI_OBJECT_TYPE_TAM,
@@ -42197,9 +43064,14 @@ const sai_attr_condition_t sai_metadata_condition_SAI_TUNNEL_ATTR_UNDERLAY_INTER
     .attrid = SAI_TUNNEL_ATTR_TYPE,
     .condition = { .s32 = SAI_TUNNEL_TYPE_IPINIP_GRE }
 };
+const sai_attr_condition_t sai_metadata_condition_SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE_2 = {
+    .attrid = SAI_TUNNEL_ATTR_TYPE,
+    .condition = { .s32 = SAI_TUNNEL_TYPE_VXLAN }
+};
 const sai_attr_condition_t* const sai_metadata_conditions_SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE[] = {
     &sai_metadata_condition_SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE_0,
     &sai_metadata_condition_SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE_1,
+    &sai_metadata_condition_SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE_2,
     NULL
 };
 const sai_attr_metadata_t sai_metadata_attr_SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE = {
@@ -42226,8 +43098,8 @@ const sai_attr_metadata_t sai_metadata_attr_SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE =
     .enummetadata                  = NULL,
     .conditiontype                 = SAI_ATTR_CONDITION_TYPE_OR,
     .conditions                    = sai_metadata_conditions_SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE,
-    .conditionslength              = 2,
-    .isconditional                 = (2 != 0),
+    .conditionslength              = 3,
+    .isconditional                 = (3 != 0),
     .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
     .validonly                     = NULL,
     .validonlylength               = 0,
@@ -42246,6 +43118,7 @@ const sai_attr_metadata_t sai_metadata_attr_SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE =
 };
 const sai_object_type_t sai_metadata_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE_allowed_objects[] = {
     SAI_OBJECT_TYPE_ROUTER_INTERFACE,
+    SAI_OBJECT_TYPE_PORT,
 };
 const sai_attr_condition_t sai_metadata_condition_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE_0 = {
     .attrid = SAI_TUNNEL_ATTR_TYPE,
@@ -42255,9 +43128,14 @@ const sai_attr_condition_t sai_metadata_condition_SAI_TUNNEL_ATTR_OVERLAY_INTERF
     .attrid = SAI_TUNNEL_ATTR_TYPE,
     .condition = { .s32 = SAI_TUNNEL_TYPE_IPINIP_GRE }
 };
+const sai_attr_condition_t sai_metadata_condition_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE_2 = {
+    .attrid = SAI_TUNNEL_ATTR_TYPE,
+    .condition = { .s32 = SAI_TUNNEL_TYPE_VXLAN }
+};
 const sai_attr_condition_t* const sai_metadata_conditions_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE[] = {
     &sai_metadata_condition_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE_0,
     &sai_metadata_condition_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE_1,
+    &sai_metadata_condition_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE_2,
     NULL
 };
 const sai_attr_metadata_t sai_metadata_attr_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE = {
@@ -42268,12 +43146,12 @@ const sai_attr_metadata_t sai_metadata_attr_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE = 
     .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_OBJECT_ID,
     .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_MANDATORY_ON_CREATE|SAI_ATTR_FLAGS_CREATE_ONLY),
     .allowedobjecttypes            = sai_metadata_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE_allowed_objects,
-    .allowedobjecttypeslength      = 1,
+    .allowedobjecttypeslength      = 2,
     .allowrepetitiononlist         = false,
     .allowmixedobjecttypes         = false,
     .allowemptylist                = false,
     .allownullobjectid             = false,
-    .isoidattribute                = (1 > 0),
+    .isoidattribute                = (2 > 0),
     .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
     .defaultvalue                  = NULL,
     .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
@@ -42284,8 +43162,8 @@ const sai_attr_metadata_t sai_metadata_attr_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE = 
     .enummetadata                  = NULL,
     .conditiontype                 = SAI_ATTR_CONDITION_TYPE_OR,
     .conditions                    = sai_metadata_conditions_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE,
-    .conditionslength              = 2,
-    .isconditional                 = (2 != 0),
+    .conditionslength              = 3,
+    .isconditional                 = (3 != 0),
     .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
     .validonly                     = NULL,
     .validonlylength               = 0,
@@ -48502,6 +49380,27 @@ const sai_attr_metadata_t* const sai_metadata_object_type_sai_bfd_session_attr_t
     &sai_metadata_attr_SAI_BFD_SESSION_ATTR_STATE,
     NULL
 };
+const sai_attr_metadata_t* const sai_metadata_object_type_sai_table_peering_entry_attr_t[] = {
+    &sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_ACTION,
+    &sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_SRC_PORT,
+    &sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_IS_DEFAULT,
+    &sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_META_REG,
+    NULL
+};
+const sai_attr_metadata_t* const sai_metadata_object_type_sai_table_vhost_entry_attr_t[] = {
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_ACTION,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_PRIORITY,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_META_REG_KEY,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_META_REG_MASK,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_DST_IP,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_IS_DEFAULT,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_BRIDGE_ID,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_UNDERLAY_DIP,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_VR_ID,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_PORT_ID,
+    NULL
+};
 const sai_attr_metadata_t* const* const sai_metadata_attr_by_object_type[] = {
     sai_metadata_object_type_sai_null_attr_t,
     sai_metadata_object_type_sai_port_attr_t,
@@ -48579,9 +49478,11 @@ const sai_attr_metadata_t* const* const sai_metadata_attr_by_object_type[] = {
     sai_metadata_object_type_sai_dtel_report_session_attr_t,
     sai_metadata_object_type_sai_dtel_event_attr_t,
     sai_metadata_object_type_sai_bfd_session_attr_t,
+    sai_metadata_object_type_sai_table_peering_entry_attr_t,
+    sai_metadata_object_type_sai_table_vhost_entry_attr_t,
     NULL
 };
-const size_t sai_metadata_attr_by_object_type_count = 76;
+const size_t sai_metadata_attr_by_object_type_count = 78;
 
 /* Get enum name helper methods */
 
@@ -49039,6 +49940,21 @@ const char* sai_metadata_get_switch_switching_mode_name(
         _In_ sai_switch_switching_mode_t value)
 {
     return sai_metadata_get_enum_value_name(&sai_metadata_enum_sai_switch_switching_mode_t, value);
+}
+const char* sai_metadata_get_table_peering_entry_action_name(
+        _In_ sai_table_peering_entry_action_t value)
+{
+    return sai_metadata_get_enum_value_name(&sai_metadata_enum_sai_table_peering_entry_action_t, value);
+}
+const char* sai_metadata_get_table_vhost_entry_action_name(
+        _In_ sai_table_vhost_entry_action_t value)
+{
+    return sai_metadata_get_enum_value_name(&sai_metadata_enum_sai_table_vhost_entry_action_t, value);
+}
+const char* sai_metadata_get_table_vhost_entry_stat_name(
+        _In_ sai_table_vhost_entry_stat_t value)
+{
+    return sai_metadata_get_enum_value_name(&sai_metadata_enum_sai_table_vhost_entry_stat_t, value);
 }
 const char* sai_metadata_get_tam_microburst_stat_name(
         _In_ sai_tam_microburst_stat_t value)
@@ -49634,6 +50550,7 @@ const sai_struct_member_info_t* const sai_metadata_struct_members_sai_inseg_entr
 
 sai_acl_api_t *sai_metadata_sai_acl_api = NULL;
 sai_bfd_api_t *sai_metadata_sai_bfd_api = NULL;
+sai_bmtor_api_t *sai_metadata_sai_bmtor_api = NULL;
 sai_bridge_api_t *sai_metadata_sai_bridge_api = NULL;
 sai_buffer_api_t *sai_metadata_sai_buffer_api = NULL;
 sai_dtel_api_t *sai_metadata_sai_dtel_api = NULL;
@@ -49689,6 +50606,8 @@ int sai_metadata_apis_query(
         apis->acl_api = NULL;
         sai_metadata_sai_bfd_api = NULL;
         apis->bfd_api = NULL;
+        sai_metadata_sai_bmtor_api = NULL;
+        apis->bmtor_api = NULL;
         sai_metadata_sai_bridge_api = NULL;
         apis->bridge_api = NULL;
         sai_metadata_sai_buffer_api = NULL;
@@ -49780,6 +50699,14 @@ int sai_metadata_apis_query(
         count++;
         const char *name = sai_metadata_get_enum_value_name(&sai_metadata_enum_sai_status_t, status);
         SAI_META_LOG_NOTICE("failed to query api SAI_API_BFD: %s (%d)", name, status);
+    }
+    status = api_query(SAI_API_BMTOR, (void**)&sai_metadata_sai_bmtor_api);
+    apis->bmtor_api = sai_metadata_sai_bmtor_api;
+    if (status != SAI_STATUS_SUCCESS)
+    {
+        count++;
+        const char *name = sai_metadata_get_enum_value_name(&sai_metadata_enum_sai_status_t, status);
+        SAI_META_LOG_NOTICE("failed to query api SAI_API_BMTOR: %s (%d)", name, status);
     }
     status = api_query(SAI_API_BRIDGE, (void**)&sai_metadata_sai_bridge_api);
     apis->bridge_api = sai_metadata_sai_bridge_api;
@@ -50262,6 +51189,24 @@ const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_
     .attrmetadata        = &sai_metadata_attr_SAI_SWITCH_ATTR_PORT_LIST,
     .structmember        = NULL,
 };
+const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_30 = {
+    .objecttype          = SAI_OBJECT_TYPE_PORT,
+    .depobjecttype       = SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY,
+    .attrmetadata        = &sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_SRC_PORT,
+    .structmember        = NULL,
+};
+const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_31 = {
+    .objecttype          = SAI_OBJECT_TYPE_PORT,
+    .depobjecttype       = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .attrmetadata        = &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_PORT_ID,
+    .structmember        = NULL,
+};
+const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_32 = {
+    .objecttype          = SAI_OBJECT_TYPE_PORT,
+    .depobjecttype       = SAI_OBJECT_TYPE_TUNNEL,
+    .attrmetadata        = &sai_metadata_attr_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE,
+    .structmember        = NULL,
+};
 const sai_rev_graph_member_t* const sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_members[] = {
     &sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_0,
     &sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_1,
@@ -50293,6 +51238,9 @@ const sai_rev_graph_member_t* const sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_
     &sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_27,
     &sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_28,
     &sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_29,
+    &sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_30,
+    &sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_31,
+    &sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_32,
     NULL,
 };
 sai_status_t sai_metadata_generic_create_SAI_OBJECT_TYPE_PORT(
@@ -50334,7 +51282,7 @@ const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_PORT 
     .structmembers        = NULL,
     .structmemberscount   = 0,
     .revgraphmembers      = sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_members,
-    .revgraphmemberscount = 30,
+    .revgraphmemberscount = 33,
     .create               = sai_metadata_generic_create_SAI_OBJECT_TYPE_PORT,
     .remove               = sai_metadata_generic_remove_SAI_OBJECT_TYPE_PORT,
     .set                  = sai_metadata_generic_set_SAI_OBJECT_TYPE_PORT,
@@ -50496,17 +51444,23 @@ const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_VIRTUAL_ROUTER_rev_gra
 };
 const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_VIRTUAL_ROUTER_rev_graph_member_6 = {
     .objecttype          = SAI_OBJECT_TYPE_VIRTUAL_ROUTER,
-    .depobjecttype       = SAI_OBJECT_TYPE_TUNNEL_MAP_ENTRY,
-    .attrmetadata        = &sai_metadata_attr_SAI_TUNNEL_MAP_ENTRY_ATTR_VIRTUAL_ROUTER_ID_KEY,
+    .depobjecttype       = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .attrmetadata        = &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_VR_ID,
     .structmember        = NULL,
 };
 const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_VIRTUAL_ROUTER_rev_graph_member_7 = {
     .objecttype          = SAI_OBJECT_TYPE_VIRTUAL_ROUTER,
     .depobjecttype       = SAI_OBJECT_TYPE_TUNNEL_MAP_ENTRY,
-    .attrmetadata        = &sai_metadata_attr_SAI_TUNNEL_MAP_ENTRY_ATTR_VIRTUAL_ROUTER_ID_VALUE,
+    .attrmetadata        = &sai_metadata_attr_SAI_TUNNEL_MAP_ENTRY_ATTR_VIRTUAL_ROUTER_ID_KEY,
     .structmember        = NULL,
 };
 const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_VIRTUAL_ROUTER_rev_graph_member_8 = {
+    .objecttype          = SAI_OBJECT_TYPE_VIRTUAL_ROUTER,
+    .depobjecttype       = SAI_OBJECT_TYPE_TUNNEL_MAP_ENTRY,
+    .attrmetadata        = &sai_metadata_attr_SAI_TUNNEL_MAP_ENTRY_ATTR_VIRTUAL_ROUTER_ID_VALUE,
+    .structmember        = NULL,
+};
+const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_VIRTUAL_ROUTER_rev_graph_member_9 = {
     .objecttype          = SAI_OBJECT_TYPE_VIRTUAL_ROUTER,
     .depobjecttype       = SAI_OBJECT_TYPE_TUNNEL_TERM_TABLE_ENTRY,
     .attrmetadata        = &sai_metadata_attr_SAI_TUNNEL_TERM_TABLE_ENTRY_ATTR_VR_ID,
@@ -50522,6 +51476,7 @@ const sai_rev_graph_member_t* const sai_metadata_SAI_OBJECT_TYPE_VIRTUAL_ROUTER_
     &sai_metadata_SAI_OBJECT_TYPE_VIRTUAL_ROUTER_rev_graph_member_6,
     &sai_metadata_SAI_OBJECT_TYPE_VIRTUAL_ROUTER_rev_graph_member_7,
     &sai_metadata_SAI_OBJECT_TYPE_VIRTUAL_ROUTER_rev_graph_member_8,
+    &sai_metadata_SAI_OBJECT_TYPE_VIRTUAL_ROUTER_rev_graph_member_9,
     NULL,
 };
 sai_status_t sai_metadata_generic_create_SAI_OBJECT_TYPE_VIRTUAL_ROUTER(
@@ -50563,7 +51518,7 @@ const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_VIRTU
     .structmembers        = NULL,
     .structmemberscount   = 0,
     .revgraphmembers      = sai_metadata_SAI_OBJECT_TYPE_VIRTUAL_ROUTER_rev_graph_members,
-    .revgraphmemberscount = 9,
+    .revgraphmemberscount = 10,
     .create               = sai_metadata_generic_create_SAI_OBJECT_TYPE_VIRTUAL_ROUTER,
     .remove               = sai_metadata_generic_remove_SAI_OBJECT_TYPE_VIRTUAL_ROUTER,
     .set                  = sai_metadata_generic_set_SAI_OBJECT_TYPE_VIRTUAL_ROUTER,
@@ -53510,6 +54465,12 @@ const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_TUNNEL_rev_graph_membe
 };
 const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_TUNNEL_rev_graph_member_4 = {
     .objecttype          = SAI_OBJECT_TYPE_TUNNEL,
+    .depobjecttype       = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .attrmetadata        = &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID,
+    .structmember        = NULL,
+};
+const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_TUNNEL_rev_graph_member_5 = {
+    .objecttype          = SAI_OBJECT_TYPE_TUNNEL,
     .depobjecttype       = SAI_OBJECT_TYPE_TUNNEL_TERM_TABLE_ENTRY,
     .attrmetadata        = &sai_metadata_attr_SAI_TUNNEL_TERM_TABLE_ENTRY_ATTR_ACTION_TUNNEL_ID,
     .structmember        = NULL,
@@ -53520,6 +54481,7 @@ const sai_rev_graph_member_t* const sai_metadata_SAI_OBJECT_TYPE_TUNNEL_rev_grap
     &sai_metadata_SAI_OBJECT_TYPE_TUNNEL_rev_graph_member_2,
     &sai_metadata_SAI_OBJECT_TYPE_TUNNEL_rev_graph_member_3,
     &sai_metadata_SAI_OBJECT_TYPE_TUNNEL_rev_graph_member_4,
+    &sai_metadata_SAI_OBJECT_TYPE_TUNNEL_rev_graph_member_5,
     NULL,
 };
 sai_status_t sai_metadata_generic_create_SAI_OBJECT_TYPE_TUNNEL(
@@ -53561,7 +54523,7 @@ const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_TUNNE
     .structmembers        = NULL,
     .structmemberscount   = 0,
     .revgraphmembers      = sai_metadata_SAI_OBJECT_TYPE_TUNNEL_rev_graph_members,
-    .revgraphmemberscount = 5,
+    .revgraphmemberscount = 6,
     .create               = sai_metadata_generic_create_SAI_OBJECT_TYPE_TUNNEL,
     .remove               = sai_metadata_generic_remove_SAI_OBJECT_TYPE_TUNNEL,
     .set                  = sai_metadata_generic_set_SAI_OBJECT_TYPE_TUNNEL,
@@ -54494,11 +55456,17 @@ const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_BRIDGE_rev_graph_membe
 };
 const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_BRIDGE_rev_graph_member_8 = {
     .objecttype          = SAI_OBJECT_TYPE_BRIDGE,
+    .depobjecttype       = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .attrmetadata        = &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_BRIDGE_ID,
+    .structmember        = NULL,
+};
+const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_BRIDGE_rev_graph_member_9 = {
+    .objecttype          = SAI_OBJECT_TYPE_BRIDGE,
     .depobjecttype       = SAI_OBJECT_TYPE_TUNNEL_MAP_ENTRY,
     .attrmetadata        = &sai_metadata_attr_SAI_TUNNEL_MAP_ENTRY_ATTR_BRIDGE_ID_KEY,
     .structmember        = NULL,
 };
-const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_BRIDGE_rev_graph_member_9 = {
+const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_BRIDGE_rev_graph_member_10 = {
     .objecttype          = SAI_OBJECT_TYPE_BRIDGE,
     .depobjecttype       = SAI_OBJECT_TYPE_TUNNEL_MAP_ENTRY,
     .attrmetadata        = &sai_metadata_attr_SAI_TUNNEL_MAP_ENTRY_ATTR_BRIDGE_ID_VALUE,
@@ -54515,6 +55483,7 @@ const sai_rev_graph_member_t* const sai_metadata_SAI_OBJECT_TYPE_BRIDGE_rev_grap
     &sai_metadata_SAI_OBJECT_TYPE_BRIDGE_rev_graph_member_7,
     &sai_metadata_SAI_OBJECT_TYPE_BRIDGE_rev_graph_member_8,
     &sai_metadata_SAI_OBJECT_TYPE_BRIDGE_rev_graph_member_9,
+    &sai_metadata_SAI_OBJECT_TYPE_BRIDGE_rev_graph_member_10,
     NULL,
 };
 sai_status_t sai_metadata_generic_create_SAI_OBJECT_TYPE_BRIDGE(
@@ -54556,7 +55525,7 @@ const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_BRIDG
     .structmembers        = NULL,
     .structmemberscount   = 0,
     .revgraphmembers      = sai_metadata_SAI_OBJECT_TYPE_BRIDGE_rev_graph_members,
-    .revgraphmemberscount = 10,
+    .revgraphmemberscount = 11,
     .create               = sai_metadata_generic_create_SAI_OBJECT_TYPE_BRIDGE,
     .remove               = sai_metadata_generic_remove_SAI_OBJECT_TYPE_BRIDGE,
     .set                  = sai_metadata_generic_set_SAI_OBJECT_TYPE_BRIDGE,
@@ -55625,6 +56594,96 @@ const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_BFD_S
     .set                  = sai_metadata_generic_set_SAI_OBJECT_TYPE_BFD_SESSION,
     .get                  = sai_metadata_generic_get_SAI_OBJECT_TYPE_BFD_SESSION,
 };
+sai_status_t sai_metadata_generic_create_SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY(
+        _Inout_ sai_object_meta_key_t *meta_key,
+        _In_ sai_object_id_t switch_id,
+        _In_ uint32_t attr_count,
+        _In_ const sai_attribute_t *attr_list)
+{
+    return sai_metadata_sai_bmtor_api->create_table_peering_entry(&meta_key->objectkey.key.object_id, switch_id, attr_count, attr_list);
+}
+sai_status_t sai_metadata_generic_remove_SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY(
+        _In_ const sai_object_meta_key_t *meta_key)
+{
+    return sai_metadata_sai_bmtor_api->remove_table_peering_entry(meta_key->objectkey.key.object_id);
+}
+sai_status_t sai_metadata_generic_set_SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY(
+        _In_ const sai_object_meta_key_t *meta_key,
+        _In_ const sai_attribute_t *attr)
+{
+    return sai_metadata_sai_bmtor_api->set_table_peering_entry_attribute(meta_key->objectkey.key.object_id, attr);
+}
+sai_status_t sai_metadata_generic_get_SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY(
+        _In_ const sai_object_meta_key_t *meta_key,
+        _In_ uint32_t attr_count,
+        _Inout_ sai_attribute_t *attr_list)
+{
+    return sai_metadata_sai_bmtor_api->get_table_peering_entry_attribute(meta_key->objectkey.key.object_id, attr_count, attr_list);
+}
+const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY = {
+    .objecttype           = SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY,
+    .objecttypename       = "SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY",
+    .attridstart          = SAI_TABLE_PEERING_ENTRY_ATTR_START,
+    .attridend            = SAI_TABLE_PEERING_ENTRY_ATTR_END,
+    .enummetadata         = &sai_metadata_enum_sai_table_peering_entry_attr_t,
+    .attrmetadata         = sai_metadata_object_type_sai_table_peering_entry_attr_t,
+    .attrmetadatalength   = 4,
+    .isnonobjectid        = false,
+    .isobjectid           = !false,
+    .structmembers        = NULL,
+    .structmemberscount   = 0,
+    .revgraphmembers      = NULL,
+    .revgraphmemberscount = 0,
+    .create               = sai_metadata_generic_create_SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY,
+    .remove               = sai_metadata_generic_remove_SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY,
+    .set                  = sai_metadata_generic_set_SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY,
+    .get                  = sai_metadata_generic_get_SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY,
+};
+sai_status_t sai_metadata_generic_create_SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY(
+        _Inout_ sai_object_meta_key_t *meta_key,
+        _In_ sai_object_id_t switch_id,
+        _In_ uint32_t attr_count,
+        _In_ const sai_attribute_t *attr_list)
+{
+    return sai_metadata_sai_bmtor_api->create_table_vhost_entry(&meta_key->objectkey.key.object_id, switch_id, attr_count, attr_list);
+}
+sai_status_t sai_metadata_generic_remove_SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY(
+        _In_ const sai_object_meta_key_t *meta_key)
+{
+    return sai_metadata_sai_bmtor_api->remove_table_vhost_entry(meta_key->objectkey.key.object_id);
+}
+sai_status_t sai_metadata_generic_set_SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY(
+        _In_ const sai_object_meta_key_t *meta_key,
+        _In_ const sai_attribute_t *attr)
+{
+    return sai_metadata_sai_bmtor_api->set_table_vhost_entry_attribute(meta_key->objectkey.key.object_id, attr);
+}
+sai_status_t sai_metadata_generic_get_SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY(
+        _In_ const sai_object_meta_key_t *meta_key,
+        _In_ uint32_t attr_count,
+        _Inout_ sai_attribute_t *attr_list)
+{
+    return sai_metadata_sai_bmtor_api->get_table_vhost_entry_attribute(meta_key->objectkey.key.object_id, attr_count, attr_list);
+}
+const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY = {
+    .objecttype           = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .objecttypename       = "SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY",
+    .attridstart          = SAI_TABLE_VHOST_ENTRY_ATTR_START,
+    .attridend            = SAI_TABLE_VHOST_ENTRY_ATTR_END,
+    .enummetadata         = &sai_metadata_enum_sai_table_vhost_entry_attr_t,
+    .attrmetadata         = sai_metadata_object_type_sai_table_vhost_entry_attr_t,
+    .attrmetadatalength   = 11,
+    .isnonobjectid        = false,
+    .isobjectid           = !false,
+    .structmembers        = NULL,
+    .structmemberscount   = 0,
+    .revgraphmembers      = NULL,
+    .revgraphmemberscount = 0,
+    .create               = sai_metadata_generic_create_SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .remove               = sai_metadata_generic_remove_SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .set                  = sai_metadata_generic_set_SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+    .get                  = sai_metadata_generic_get_SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
+};
 
 /* Object infos table */
 
@@ -55705,6 +56764,8 @@ const sai_object_type_info_t* const sai_metadata_all_object_type_infos[] = {
     &sai_metadata_object_type_info_SAI_OBJECT_TYPE_DTEL_REPORT_SESSION,
     &sai_metadata_object_type_info_SAI_OBJECT_TYPE_DTEL_EVENT,
     &sai_metadata_object_type_info_SAI_OBJECT_TYPE_BFD_SESSION,
+    &sai_metadata_object_type_info_SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY,
+    &sai_metadata_object_type_info_SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY,
     NULL
 };
 
@@ -56424,6 +57485,21 @@ const sai_attr_metadata_t* const sai_metadata_attr_sorted_by_id_name[] = {
     &sai_metadata_attr_SAI_SWITCH_ATTR_VLAN_USER_META_DATA_RANGE,
     &sai_metadata_attr_SAI_SWITCH_ATTR_VXLAN_DEFAULT_PORT,
     &sai_metadata_attr_SAI_SWITCH_ATTR_VXLAN_DEFAULT_ROUTER_MAC,
+    &sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_ACTION,
+    &sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_IS_DEFAULT,
+    &sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_META_REG,
+    &sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_SRC_PORT,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_ACTION,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_BRIDGE_ID,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_DST_IP,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_IS_DEFAULT,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_META_REG_KEY,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_META_REG_MASK,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_PORT_ID,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_PRIORITY,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_UNDERLAY_DIP,
+    &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_VR_ID,
     &sai_metadata_attr_SAI_TAM_ATTR_BUFFER_REPORTING_MODE,
     &sai_metadata_attr_SAI_TAM_ATTR_BUFFER_TRACKING_ADMIN_STATE,
     &sai_metadata_attr_SAI_TAM_ATTR_BUFFER_TRACKING_MODE,
@@ -56569,7 +57645,7 @@ const sai_attr_metadata_t* const sai_metadata_attr_sorted_by_id_name[] = {
     &sai_metadata_attr_SAI_WRED_ATTR_YELLOW_MIN_THRESHOLD,
     NULL
 };
-const size_t sai_metadata_attr_sorted_by_id_name_count = 856;
+const size_t sai_metadata_attr_sorted_by_id_name_count = 871;
 
 /* SAI notifications struct */
 
@@ -57182,6 +58258,24 @@ int sai_serialize_switch_switching_mode(
         _In_ sai_switch_switching_mode_t switch_switching_mode)
 {
     return sai_serialize_enum(buffer, &sai_metadata_enum_sai_switch_switching_mode_t, switch_switching_mode);
+}
+int sai_serialize_table_peering_entry_action(
+        _Out_ char *buffer,
+        _In_ sai_table_peering_entry_action_t table_peering_entry_action)
+{
+    return sai_serialize_enum(buffer, &sai_metadata_enum_sai_table_peering_entry_action_t, table_peering_entry_action);
+}
+int sai_serialize_table_vhost_entry_action(
+        _Out_ char *buffer,
+        _In_ sai_table_vhost_entry_action_t table_vhost_entry_action)
+{
+    return sai_serialize_enum(buffer, &sai_metadata_enum_sai_table_vhost_entry_action_t, table_vhost_entry_action);
+}
+int sai_serialize_table_vhost_entry_stat(
+        _Out_ char *buffer,
+        _In_ sai_table_vhost_entry_stat_t table_vhost_entry_stat)
+{
+    return sai_serialize_enum(buffer, &sai_metadata_enum_sai_table_vhost_entry_stat_t, table_vhost_entry_stat);
 }
 int sai_serialize_tam_microburst_stat(
         _Out_ char *buffer,

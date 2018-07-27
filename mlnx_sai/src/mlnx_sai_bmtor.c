@@ -447,22 +447,30 @@ sai_status_t mlnx_get_table_vhost_entry_attribute(
     return SAI_STATUS_SUCCESS;
 }
 
-sai_status_t mlnx_get_bmtor_stats(sai_object_id_t entry_id, uint32_t number_of_counters, const sai_bmtor_stat_t *counter_ids, uint64_t *counters) {
+sai_status_t mlnx_get_table_vhost_entry_stats(sai_object_id_t entry_id, uint32_t number_of_counters, const sai_table_vhost_entry_stat_t *counter_ids, uint64_t *counters) {
     sai_status_t status;
     uint32_t offset;
     sai_object_type_t object_type = SAI_OBJECT_TYPE_NULL;
-    flextrum_table_id_t table_id = CONTROL_IN_PORT_TABLE_PEERING_ID;
+    flextrum_table_id_t table_id = CONTROL_IN_PORT_TABLE_VHOST_ID;
     uint32_t i;
     for (i = 0; i < number_of_counters; i++) {
-        if ((counter_ids[i] == SAI_BMTOR_STAT_TABLE_PEERING_HIT_PACKETS) || (counter_ids[i] == SAI_BMTOR_STAT_TABLE_PEERING_HIT_OCTETS)) {
-            if (object_type == SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY) {
-                MLNX_SAI_LOG_ERR("Got mixed counters of different objects.");
-                return SAI_STATUS_INVALID_PARAMETER;
-            }
-            object_type = SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY;
-            table_id = CONTROL_IN_PORT_TABLE_PEERING_ID;
-        }
-        if ((counter_ids[i] == SAI_BMTOR_STAT_TABLE_VHOST_HIT_PACKETS) || (counter_ids[i] == SAI_BMTOR_STAT_TABLE_VHOST_HIT_OCTETS)) {
+        /* if ((counter_ids[i] == SAI_BMTOR_STAT_TABLE_PEERING_HIT_PACKETS) || (counter_ids[i] == SAI_BMTOR_STAT_TABLE_PEERING_HIT_OCTETS)) { */
+        /*     if (object_type == SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY) { */
+        /*         MLNX_SAI_LOG_ERR("Got mixed counters of different objects."); */
+        /*         return SAI_STATUS_INVALID_PARAMETER; */
+        /*     } */
+        /*     object_type = SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY; */
+        /*     table_id = CONTROL_IN_PORT_TABLE_PEERING_ID; */
+        /* } */
+        /* if ((counter_ids[i] == SAI_BMTOR_STAT_TABLE_VHOST_HIT_PACKETS) || (counter_ids[i] == SAI_BMTOR_STAT_TABLE_VHOST_HIT_OCTETS)) { */
+        /*     if (object_type == SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY) { */
+        /*         MLNX_SAI_LOG_ERR("Got mixed counters of different objects."); */
+        /*         return SAI_STATUS_INVALID_PARAMETER; */
+        /*     } */
+        /*     object_type = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY; */
+        /*     table_id = CONTROL_IN_PORT_TABLE_VHOST_ID; */
+        /* } */
+        if ((counter_ids[i] == SAI_TABLE_VHOST_ENTRY_STAT_HIT_PACKETS) || (counter_ids[i] == SAI_TABLE_VHOST_ENTRY_STAT_HIT_OCTETS)) {
             if (object_type == SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY) {
                 MLNX_SAI_LOG_ERR("Got mixed counters of different objects.");
                 return SAI_STATUS_INVALID_PARAMETER;
@@ -485,32 +493,46 @@ sai_status_t mlnx_get_bmtor_stats(sai_object_id_t entry_id, uint32_t number_of_c
     }
 
     for (i = 0; i < number_of_counters; i++) {
-        if ((counter_ids[i] == SAI_BMTOR_STAT_TABLE_PEERING_HIT_PACKETS) || (counter_ids[i] == SAI_BMTOR_STAT_TABLE_VHOST_HIT_PACKETS)) {
+        /* if ((counter_ids[i] == SAI_BMTOR_STAT_TABLE_PEERING_HIT_PACKETS) || (counter_ids[i] == SAI_BMTOR_STAT_TABLE_VHOST_HIT_PACKETS)) { */
+        /*     counters[i] = packets; */
+        /* } */
+        /* if ((counter_ids[i] == SAI_BMTOR_STAT_TABLE_VHOST_HIT_OCTETS) || (counter_ids[i] == SAI_BMTOR_STAT_TABLE_PEERING_HIT_OCTETS)) { */
+        /*     counters[i] = bytes; */
+        /* } */
+        if (counter_ids[i] == SAI_TABLE_VHOST_ENTRY_STAT_HIT_PACKETS) {
             counters[i] = packets;
         }
-        if ((counter_ids[i] == SAI_BMTOR_STAT_TABLE_VHOST_HIT_OCTETS) || (counter_ids[i] == SAI_BMTOR_STAT_TABLE_PEERING_HIT_OCTETS)) {
+        if (counter_ids[i] == SAI_TABLE_VHOST_ENTRY_STAT_HIT_OCTETS) {
             counters[i] = bytes;
         }
     }
     return SAI_STATUS_SUCCESS;
 }
 
-sai_status_t mlnx_clear_bmtor_stats(sai_object_id_t entry_id, uint32_t number_of_counters, const sai_bmtor_stat_t *counter_ids) {
+sai_status_t mlnx_clear_table_vhost_entry_stats(sai_object_id_t entry_id, uint32_t number_of_counters, const sai_table_vhost_entry_stat_t *counter_ids) {
     sai_status_t status;
     uint32_t offset;
     sai_object_type_t object_type = SAI_OBJECT_TYPE_NULL;
-    flextrum_table_id_t table_id = CONTROL_IN_PORT_TABLE_PEERING_ID;
+    flextrum_table_id_t table_id = CONTROL_IN_PORT_TABLE_VHOST_ID;
     uint32_t i;
     for (i = 0; i < number_of_counters; i++) {
-        if ((counter_ids[i] == SAI_BMTOR_STAT_TABLE_PEERING_HIT_PACKETS) || (counter_ids[i] == SAI_BMTOR_STAT_TABLE_PEERING_HIT_OCTETS)) {
-            if (object_type == SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY) {
-                MLNX_SAI_LOG_ERR("Got mixed counters of different objects.");
-                return SAI_STATUS_INVALID_PARAMETER;
-            }
-            object_type = SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY;
-            table_id = CONTROL_IN_PORT_TABLE_PEERING_ID;
-        }
-        if ((counter_ids[i] == SAI_BMTOR_STAT_TABLE_VHOST_HIT_PACKETS) || (counter_ids[i] == SAI_BMTOR_STAT_TABLE_VHOST_HIT_OCTETS)) {
+        /* if ((counter_ids[i] == SAI_BMTOR_STAT_TABLE_PEERING_HIT_PACKETS) || (counter_ids[i] == SAI_BMTOR_STAT_TABLE_PEERING_HIT_OCTETS)) { */
+        /*     if (object_type == SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY) { */
+        /*         MLNX_SAI_LOG_ERR("Got mixed counters of different objects."); */
+        /*         return SAI_STATUS_INVALID_PARAMETER; */
+        /*     } */
+        /*     object_type = SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY; */
+        /*     table_id = CONTROL_IN_PORT_TABLE_PEERING_ID; */
+        /* } */
+        /* if ((counter_ids[i] == SAI_BMTOR_STAT_TABLE_VHOST_HIT_PACKETS) || (counter_ids[i] == SAI_BMTOR_STAT_TABLE_VHOST_HIT_OCTETS)) { */
+        /*     if (object_type == SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY) { */
+        /*         MLNX_SAI_LOG_ERR("Got mixed counters of different objects."); */
+        /*         return SAI_STATUS_INVALID_PARAMETER; */
+        /*     } */
+        /*     object_type = SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY; */
+        /*     table_id = CONTROL_IN_PORT_TABLE_VHOST_ID; */
+        /* } */
+        if ((counter_ids[i] == SAI_TABLE_VHOST_ENTRY_STAT_HIT_PACKETS) || (counter_ids[i] == SAI_TABLE_VHOST_ENTRY_STAT_HIT_OCTETS)) {
             if (object_type == SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY) {
                 MLNX_SAI_LOG_ERR("Got mixed counters of different objects.");
                 return SAI_STATUS_INVALID_PARAMETER;
@@ -587,6 +609,6 @@ const sai_bmtor_api_t mlnx_bmtor_api = {
     mlnx_remove_table_vhost_entry,
     mlnx_set_table_vhost_entry_attribute,
     mlnx_get_table_vhost_entry_attribute,
-    mlnx_get_bmtor_stats,
-    mlnx_clear_bmtor_stats
+    mlnx_get_table_vhost_entry_stats,
+    mlnx_clear_table_vhost_entry_stats
 };

@@ -67,7 +67,7 @@
 #include "saiuburst.h"
 #include "saidtel.h"
 #include "saibfd.h"
-#include "saiext_inc.h"
+#include "saibmtor.h"
 
 /**
  * @defgroup SAI SAI - Entry point specific API definitions.
@@ -124,8 +124,8 @@ typedef enum _sai_api_t
     SAI_API_UBURST           = 37, /**< sai_uburst_api_t */
     SAI_API_DTEL             = 38, /**< sai_dtel_api_t (experimental) */
     SAI_API_BFD              = 39, /**< sai_bfd_api_t */
-    SAI_API_MAX              = 40, /**< total number of APIs */
-#include "saiapi_ext.h"
+    SAI_API_BMTOR            = 40,
+    SAI_API_MAX              = 41, /**< total number of APIs */
 } sai_api_t;
 
 /**

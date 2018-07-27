@@ -244,8 +244,9 @@ typedef enum _sai_object_type_t
     SAI_OBJECT_TYPE_DTEL_REPORT_SESSION      = 73, /**< experimental */
     SAI_OBJECT_TYPE_DTEL_EVENT               = 74, /**< experimental */
     SAI_OBJECT_TYPE_BFD_SESSION              = 75,
-    SAI_OBJECT_TYPE_MAX                      = 76,
-#include "sai_object_type_ext.h"
+    SAI_OBJECT_TYPE_TABLE_PEERING_ENTRY      = 76,
+    SAI_OBJECT_TYPE_TABLE_VHOST_ENTRY        = 77,
+    SAI_OBJECT_TYPE_MAX                      = 78,
 } sai_object_type_t;
 
 typedef struct _sai_u8_list_t

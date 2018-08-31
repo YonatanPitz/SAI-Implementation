@@ -212,6 +212,7 @@ extern const sai_enum_metadata_t sai_metadata_enum_sai_queue_stat_t;
 extern const sai_enum_metadata_t sai_metadata_enum_sai_queue_type_t;
 extern const sai_enum_metadata_t sai_metadata_enum_sai_route_entry_attr_t;
 extern const sai_enum_metadata_t sai_metadata_enum_sai_router_interface_attr_t;
+extern const sai_enum_metadata_t sai_metadata_enum_sai_router_interface_stat_t;
 extern const sai_enum_metadata_t sai_metadata_enum_sai_router_interface_type_t;
 extern const sai_enum_metadata_t sai_metadata_enum_sai_rpf_group_attr_t;
 extern const sai_enum_metadata_t sai_metadata_enum_sai_rpf_group_member_attr_t;
@@ -442,6 +443,8 @@ extern const char* sai_metadata_get_queue_stat_name(
         _In_ sai_queue_stat_t value);
 extern const char* sai_metadata_get_queue_type_name(
         _In_ sai_queue_type_t value);
+extern const char* sai_metadata_get_router_interface_stat_name(
+        _In_ sai_router_interface_stat_t value);
 extern const char* sai_metadata_get_router_interface_type_name(
         _In_ sai_router_interface_type_t value);
 extern const char* sai_metadata_get_samplepacket_mode_name(
@@ -971,6 +974,9 @@ extern int sai_serialize_queue_stat(
 extern int sai_serialize_queue_type(
         _Out_ char *buffer,
         _In_ sai_queue_type_t queue_type);
+extern int sai_serialize_router_interface_stat(
+        _Out_ char *buffer,
+        _In_ sai_router_interface_stat_t router_interface_stat);
 extern int sai_serialize_router_interface_type(
         _Out_ char *buffer,
         _In_ sai_router_interface_type_t router_interface_type);
@@ -1172,6 +1178,9 @@ extern int sai_serialize_tam_statistic(
 extern int sai_serialize_tam_threshold_breach_event(
         _Out_ char *buf,
         _In_ const sai_tam_threshold_breach_event_t *tam_threshold_breach_event);
+extern int sai_serialize_timespec(
+        _Out_ char *buf,
+        _In_ const sai_timespec_t *timespec);
 extern int sai_serialize_tlv_list(
         _Out_ char *buf,
         _In_ const sai_tlv_list_t *tlv_list);

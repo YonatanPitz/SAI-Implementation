@@ -1310,6 +1310,7 @@ const sai_attr_value_type_t sai_metadata_sai_attr_value_type_t_enum_values[] = {
     SAI_ATTR_VALUE_TYPE_TLV_LIST,
     SAI_ATTR_VALUE_TYPE_SEGMENT_LIST,
     SAI_ATTR_VALUE_TYPE_IP_ADDRESS_LIST,
+    SAI_ATTR_VALUE_TYPE_TIMESPEC,
     -1
 };
 const char* const sai_metadata_sai_attr_value_type_t_enum_values_names[] = {
@@ -1373,6 +1374,7 @@ const char* const sai_metadata_sai_attr_value_type_t_enum_values_names[] = {
     "SAI_ATTR_VALUE_TYPE_TLV_LIST",
     "SAI_ATTR_VALUE_TYPE_SEGMENT_LIST",
     "SAI_ATTR_VALUE_TYPE_IP_ADDRESS_LIST",
+    "SAI_ATTR_VALUE_TYPE_TIMESPEC",
     NULL
 };
 const char* const sai_metadata_sai_attr_value_type_t_enum_values_short_names[] = {
@@ -1436,11 +1438,12 @@ const char* const sai_metadata_sai_attr_value_type_t_enum_values_short_names[] =
     "TLV_LIST",
     "SEGMENT_LIST",
     "IP_ADDRESS_LIST",
+    "TIMESPEC",
     NULL
 };
 const sai_enum_metadata_t sai_metadata_enum_sai_attr_value_type_t = {
     .name              = "sai_attr_value_type_t",
-    .valuescount       = 60,
+    .valuescount       = 61,
     .values            = (const int*)sai_metadata_sai_attr_value_type_t_enum_values,
     .valuesnames       = sai_metadata_sai_attr_value_type_t_enum_values_names,
     .valuesshortnames  = sai_metadata_sai_attr_value_type_t_enum_values_short_names,
@@ -2800,6 +2803,7 @@ const sai_hostif_packet_attr_t sai_metadata_sai_hostif_packet_attr_t_enum_values
     SAI_HOSTIF_PACKET_ATTR_HOSTIF_TX_TYPE,
     SAI_HOSTIF_PACKET_ATTR_EGRESS_PORT_OR_LAG,
     SAI_HOSTIF_PACKET_ATTR_BRIDGE_ID,
+    SAI_HOSTIF_PACKET_ATTR_TIMESTAMP,
     -1
 };
 const char* const sai_metadata_sai_hostif_packet_attr_t_enum_values_names[] = {
@@ -2809,6 +2813,7 @@ const char* const sai_metadata_sai_hostif_packet_attr_t_enum_values_names[] = {
     "SAI_HOSTIF_PACKET_ATTR_HOSTIF_TX_TYPE",
     "SAI_HOSTIF_PACKET_ATTR_EGRESS_PORT_OR_LAG",
     "SAI_HOSTIF_PACKET_ATTR_BRIDGE_ID",
+    "SAI_HOSTIF_PACKET_ATTR_TIMESTAMP",
     NULL
 };
 const char* const sai_metadata_sai_hostif_packet_attr_t_enum_values_short_names[] = {
@@ -2818,11 +2823,12 @@ const char* const sai_metadata_sai_hostif_packet_attr_t_enum_values_short_names[
     "HOSTIF_TX_TYPE",
     "EGRESS_PORT_OR_LAG",
     "BRIDGE_ID",
+    "TIMESTAMP",
     NULL
 };
 const sai_enum_metadata_t sai_metadata_enum_sai_hostif_packet_attr_t = {
     .name              = "sai_hostif_packet_attr_t",
-    .valuescount       = 6,
+    .valuescount       = 7,
     .values            = (const int*)sai_metadata_sai_hostif_packet_attr_t_enum_values,
     .valuesnames       = sai_metadata_sai_hostif_packet_attr_t_enum_values_names,
     .valuesshortnames  = sai_metadata_sai_hostif_packet_attr_t_enum_values_short_names,
@@ -2998,6 +3004,8 @@ const sai_hostif_trap_type_t sai_metadata_sai_hostif_trap_type_t_enum_values[] =
     SAI_HOSTIF_TRAP_TYPE_IGMP_TYPE_V3_REPORT,
     SAI_HOSTIF_TRAP_TYPE_SAMPLEPACKET,
     SAI_HOSTIF_TRAP_TYPE_UDLD,
+    SAI_HOSTIF_TRAP_TYPE_PTP,
+    SAI_HOSTIF_TRAP_TYPE_PTP_TX_EVENT,
     SAI_HOSTIF_TRAP_TYPE_ARP_REQUEST,
     SAI_HOSTIF_TRAP_TYPE_ARP_RESPONSE,
     SAI_HOSTIF_TRAP_TYPE_DHCP,
@@ -3040,6 +3048,8 @@ const char* const sai_metadata_sai_hostif_trap_type_t_enum_values_names[] = {
     "SAI_HOSTIF_TRAP_TYPE_IGMP_TYPE_V3_REPORT",
     "SAI_HOSTIF_TRAP_TYPE_SAMPLEPACKET",
     "SAI_HOSTIF_TRAP_TYPE_UDLD",
+    "SAI_HOSTIF_TRAP_TYPE_PTP",
+    "SAI_HOSTIF_TRAP_TYPE_PTP_TX_EVENT",
     "SAI_HOSTIF_TRAP_TYPE_ARP_REQUEST",
     "SAI_HOSTIF_TRAP_TYPE_ARP_RESPONSE",
     "SAI_HOSTIF_TRAP_TYPE_DHCP",
@@ -3082,6 +3092,8 @@ const char* const sai_metadata_sai_hostif_trap_type_t_enum_values_short_names[] 
     "IGMP_TYPE_V3_REPORT",
     "SAMPLEPACKET",
     "UDLD",
+    "PTP",
+    "PTP_TX_EVENT",
     "ARP_REQUEST",
     "ARP_RESPONSE",
     "DHCP",
@@ -3113,7 +3125,7 @@ const char* const sai_metadata_sai_hostif_trap_type_t_enum_values_short_names[] 
 };
 const sai_enum_metadata_t sai_metadata_enum_sai_hostif_trap_type_t = {
     .name              = "sai_hostif_trap_type_t",
-    .valuescount       = 39,
+    .valuescount       = 41,
     .values            = (const int*)sai_metadata_sai_hostif_trap_type_t_enum_values,
     .valuesnames       = sai_metadata_sai_hostif_trap_type_t_enum_values_names,
     .valuesshortnames  = sai_metadata_sai_hostif_trap_type_t_enum_values_short_names,
@@ -4738,6 +4750,7 @@ const sai_port_attr_t sai_metadata_sai_port_attr_t_enum_values[] = {
     SAI_PORT_ATTR_EEE_IDLE_TIME,
     SAI_PORT_ATTR_EEE_WAKE_TIME,
     SAI_PORT_ATTR_PORT_POOL_LIST,
+    SAI_PORT_ATTR_PKT_TX_ENABLE,
     -1
 };
 const char* const sai_metadata_sai_port_attr_t_enum_values_names[] = {
@@ -4824,6 +4837,7 @@ const char* const sai_metadata_sai_port_attr_t_enum_values_names[] = {
     "SAI_PORT_ATTR_EEE_IDLE_TIME",
     "SAI_PORT_ATTR_EEE_WAKE_TIME",
     "SAI_PORT_ATTR_PORT_POOL_LIST",
+    "SAI_PORT_ATTR_PKT_TX_ENABLE",
     NULL
 };
 const char* const sai_metadata_sai_port_attr_t_enum_values_short_names[] = {
@@ -4910,11 +4924,12 @@ const char* const sai_metadata_sai_port_attr_t_enum_values_short_names[] = {
     "EEE_IDLE_TIME",
     "EEE_WAKE_TIME",
     "PORT_POOL_LIST",
+    "PKT_TX_ENABLE",
     NULL
 };
 const sai_enum_metadata_t sai_metadata_enum_sai_port_attr_t = {
     .name              = "sai_port_attr_t",
-    .valuescount       = 83,
+    .valuescount       = 84,
     .values            = (const int*)sai_metadata_sai_port_attr_t_enum_values,
     .valuesnames       = sai_metadata_sai_port_attr_t_enum_values_names,
     .valuesshortnames  = sai_metadata_sai_port_attr_t_enum_values_short_names,
@@ -6128,6 +6143,47 @@ const sai_enum_metadata_t sai_metadata_enum_sai_router_interface_attr_t = {
     .valuesshortnames  = sai_metadata_sai_router_interface_attr_t_enum_values_short_names,
     .containsflags     = false,
 };
+const sai_router_interface_stat_t sai_metadata_sai_router_interface_stat_t_enum_values[] = {
+    SAI_ROUTER_INTERFACE_STAT_IN_OCTETS,
+    SAI_ROUTER_INTERFACE_STAT_IN_PACKETS,
+    SAI_ROUTER_INTERFACE_STAT_OUT_OCTETS,
+    SAI_ROUTER_INTERFACE_STAT_OUT_PACKETS,
+    SAI_ROUTER_INTERFACE_STAT_IN_ERROR_OCTETS,
+    SAI_ROUTER_INTERFACE_STAT_IN_ERROR_PACKETS,
+    SAI_ROUTER_INTERFACE_STAT_OUT_ERROR_OCTETS,
+    SAI_ROUTER_INTERFACE_STAT_OUT_ERROR_PACKETS,
+    -1
+};
+const char* const sai_metadata_sai_router_interface_stat_t_enum_values_names[] = {
+    "SAI_ROUTER_INTERFACE_STAT_IN_OCTETS",
+    "SAI_ROUTER_INTERFACE_STAT_IN_PACKETS",
+    "SAI_ROUTER_INTERFACE_STAT_OUT_OCTETS",
+    "SAI_ROUTER_INTERFACE_STAT_OUT_PACKETS",
+    "SAI_ROUTER_INTERFACE_STAT_IN_ERROR_OCTETS",
+    "SAI_ROUTER_INTERFACE_STAT_IN_ERROR_PACKETS",
+    "SAI_ROUTER_INTERFACE_STAT_OUT_ERROR_OCTETS",
+    "SAI_ROUTER_INTERFACE_STAT_OUT_ERROR_PACKETS",
+    NULL
+};
+const char* const sai_metadata_sai_router_interface_stat_t_enum_values_short_names[] = {
+    "IN_OCTETS",
+    "IN_PACKETS",
+    "OUT_OCTETS",
+    "OUT_PACKETS",
+    "IN_ERROR_OCTETS",
+    "IN_ERROR_PACKETS",
+    "OUT_ERROR_OCTETS",
+    "OUT_ERROR_PACKETS",
+    NULL
+};
+const sai_enum_metadata_t sai_metadata_enum_sai_router_interface_stat_t = {
+    .name              = "sai_router_interface_stat_t",
+    .valuescount       = 8,
+    .values            = (const int*)sai_metadata_sai_router_interface_stat_t_enum_values,
+    .valuesnames       = sai_metadata_sai_router_interface_stat_t_enum_values_names,
+    .valuesshortnames  = sai_metadata_sai_router_interface_stat_t_enum_values_short_names,
+    .containsflags     = false,
+};
 const sai_router_interface_type_t sai_metadata_sai_router_interface_type_t_enum_values[] = {
     SAI_ROUTER_INTERFACE_TYPE_PORT,
     SAI_ROUTER_INTERFACE_TYPE_VLAN,
@@ -6866,6 +6922,7 @@ const sai_switch_attr_t sai_metadata_sai_switch_attr_t_enum_values[] = {
     SAI_SWITCH_ATTR_ECMP_HASH,
     SAI_SWITCH_ATTR_LAG_HASH,
     SAI_SWITCH_ATTR_RESTART_WARM,
+    SAI_SWITCH_ATTR_WARM_RECOVER,
     SAI_SWITCH_ATTR_RESTART_TYPE,
     SAI_SWITCH_ATTR_MIN_PLANNED_RESTART_INTERVAL,
     SAI_SWITCH_ATTR_NV_STORAGE_SIZE,
@@ -7010,6 +7067,7 @@ const char* const sai_metadata_sai_switch_attr_t_enum_values_names[] = {
     "SAI_SWITCH_ATTR_ECMP_HASH",
     "SAI_SWITCH_ATTR_LAG_HASH",
     "SAI_SWITCH_ATTR_RESTART_WARM",
+    "SAI_SWITCH_ATTR_WARM_RECOVER",
     "SAI_SWITCH_ATTR_RESTART_TYPE",
     "SAI_SWITCH_ATTR_MIN_PLANNED_RESTART_INTERVAL",
     "SAI_SWITCH_ATTR_NV_STORAGE_SIZE",
@@ -7154,6 +7212,7 @@ const char* const sai_metadata_sai_switch_attr_t_enum_values_short_names[] = {
     "ECMP_HASH",
     "LAG_HASH",
     "RESTART_WARM",
+    "WARM_RECOVER",
     "RESTART_TYPE",
     "MIN_PLANNED_RESTART_INTERVAL",
     "NV_STORAGE_SIZE",
@@ -7236,7 +7295,7 @@ const char* const sai_metadata_sai_switch_attr_t_enum_values_short_names[] = {
 };
 const sai_enum_metadata_t sai_metadata_enum_sai_switch_attr_t = {
     .name              = "sai_switch_attr_t",
-    .valuescount       = 141,
+    .valuescount       = 142,
     .values            = (const int*)sai_metadata_sai_switch_attr_t_enum_values,
     .valuesnames       = sai_metadata_sai_switch_attr_t_enum_values_names,
     .valuesshortnames  = sai_metadata_sai_switch_attr_t_enum_values_short_names,
@@ -8908,6 +8967,7 @@ const sai_enum_metadata_t* const sai_metadata_all_enums[] = {
     &sai_metadata_enum_sai_queue_type_t,
     &sai_metadata_enum_sai_route_entry_attr_t,
     &sai_metadata_enum_sai_router_interface_attr_t,
+    &sai_metadata_enum_sai_router_interface_stat_t,
     &sai_metadata_enum_sai_router_interface_type_t,
     &sai_metadata_enum_sai_rpf_group_attr_t,
     &sai_metadata_enum_sai_rpf_group_member_attr_t,
@@ -8973,7 +9033,7 @@ const sai_enum_metadata_t* const sai_metadata_all_enums[] = {
     &sai_metadata_enum_sai_wred_attr_t,
     NULL
 };
-const size_t sai_metadata_all_enums_count = 190;
+const size_t sai_metadata_all_enums_count = 191;
 const sai_enum_metadata_t* const sai_metadata_attr_enums[] = {
     &sai_metadata_enum_sai_acl_counter_attr_t,
     &sai_metadata_enum_sai_acl_entry_attr_t,
@@ -23146,6 +23206,48 @@ const sai_attr_metadata_t sai_metadata_attr_SAI_HOSTIF_PACKET_ATTR_BRIDGE_ID = {
     .isprimitive                   = true,
     .notificationtype              = -1,
 };
+const sai_attr_metadata_t sai_metadata_attr_SAI_HOSTIF_PACKET_ATTR_TIMESTAMP = {
+    .objecttype                    = SAI_OBJECT_TYPE_HOSTIF_PACKET,
+    .attrid                        = SAI_HOSTIF_PACKET_ATTR_TIMESTAMP,
+    .attridname                    = "SAI_HOSTIF_PACKET_ATTR_TIMESTAMP",
+    .brief                         = "Timestamp.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_TIMESPEC,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_READ_ONLY),
+    .allowedobjecttypes            = NULL,
+    .allowedobjecttypeslength      = 0,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (0 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
+    .defaultvalue                  = NULL,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .conditions                    = NULL,
+    .conditionslength              = 0,
+    .isconditional                 = (0 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = false,
+    .iscreateonly                  = false,
+    .iscreateandset                = false,
+    .isreadonly                    = true,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
 const sai_attr_metadata_t sai_metadata_attr_SAI_HOSTIF_TABLE_ENTRY_ATTR_TYPE = {
     .objecttype                    = SAI_OBJECT_TYPE_HOSTIF_TABLE_ENTRY,
     .attrid                        = SAI_HOSTIF_TABLE_ENTRY_ATTR_TYPE,
@@ -31780,6 +31882,49 @@ const sai_attr_metadata_t sai_metadata_attr_SAI_PORT_ATTR_PORT_POOL_LIST = {
     .isprimitive                   = false,
     .notificationtype              = -1,
 };
+const sai_attribute_value_t sai_metadata_SAI_PORT_ATTR_PKT_TX_ENABLE_default_value = { .booldata = true };
+const sai_attr_metadata_t sai_metadata_attr_SAI_PORT_ATTR_PKT_TX_ENABLE = {
+    .objecttype                    = SAI_OBJECT_TYPE_PORT,
+    .attrid                        = SAI_PORT_ATTR_PKT_TX_ENABLE,
+    .attridname                    = "SAI_PORT_ATTR_PKT_TX_ENABLE",
+    .brief                         = "Port packet transmission enable.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_BOOL,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_CREATE_AND_SET),
+    .allowedobjecttypes            = NULL,
+    .allowedobjecttypeslength      = 0,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (0 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_CONST,
+    .defaultvalue                  = &sai_metadata_SAI_PORT_ATTR_PKT_TX_ENABLE_default_value,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .conditions                    = NULL,
+    .conditionslength              = 0,
+    .isconditional                 = (0 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = false,
+    .iscreateonly                  = false,
+    .iscreateandset                = true,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
 const sai_object_type_t sai_metadata_SAI_PORT_POOL_ATTR_PORT_ID_allowed_objects[] = {
     SAI_OBJECT_TYPE_PORT,
 };
@@ -37334,6 +37479,49 @@ const sai_attr_metadata_t sai_metadata_attr_SAI_SWITCH_ATTR_RESTART_WARM = {
     .isoidattribute                = (0 > 0),
     .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_CONST,
     .defaultvalue                  = &sai_metadata_SAI_SWITCH_ATTR_RESTART_WARM_default_value,
+    .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
+    .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
+    .storedefaultvalue             = false,
+    .isenum                        = false,
+    .isenumlist                    = false,
+    .enummetadata                  = NULL,
+    .conditiontype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .conditions                    = NULL,
+    .conditionslength              = 0,
+    .isconditional                 = (0 != 0),
+    .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
+    .validonly                     = NULL,
+    .validonlylength               = 0,
+    .isvalidonly                   = (0 != 0),
+    .getsave                       = false,
+    .isvlan                        = false,
+    .isaclfield                    = false,
+    .isaclaction                   = false,
+    .ismandatoryoncreate           = false,
+    .iscreateonly                  = false,
+    .iscreateandset                = true,
+    .isreadonly                    = false,
+    .iskey                         = false,
+    .isprimitive                   = true,
+    .notificationtype              = -1,
+};
+const sai_attribute_value_t sai_metadata_SAI_SWITCH_ATTR_WARM_RECOVER_default_value = { .booldata = false };
+const sai_attr_metadata_t sai_metadata_attr_SAI_SWITCH_ATTR_WARM_RECOVER = {
+    .objecttype                    = SAI_OBJECT_TYPE_SWITCH,
+    .attrid                        = SAI_SWITCH_ATTR_WARM_RECOVER,
+    .attridname                    = "SAI_SWITCH_ATTR_WARM_RECOVER",
+    .brief                         = "Warm boot recovery.",
+    .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_BOOL,
+    .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_CREATE_AND_SET),
+    .allowedobjecttypes            = NULL,
+    .allowedobjecttypeslength      = 0,
+    .allowrepetitiononlist         = false,
+    .allowmixedobjecttypes         = false,
+    .allowemptylist                = false,
+    .allownullobjectid             = false,
+    .isoidattribute                = (0 > 0),
+    .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_CONST,
+    .defaultvalue                  = &sai_metadata_SAI_SWITCH_ATTR_WARM_RECOVER_default_value,
     .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
     .defaultvalueattrid            = SAI_INVALID_ATTRIBUTE_ID,
     .storedefaultvalue             = false,
@@ -48383,6 +48571,7 @@ const sai_attr_metadata_t* const sai_metadata_object_type_sai_port_attr_t[] = {
     &sai_metadata_attr_SAI_PORT_ATTR_EEE_IDLE_TIME,
     &sai_metadata_attr_SAI_PORT_ATTR_EEE_WAKE_TIME,
     &sai_metadata_attr_SAI_PORT_ATTR_PORT_POOL_LIST,
+    &sai_metadata_attr_SAI_PORT_ATTR_PKT_TX_ENABLE,
     NULL
 };
 const sai_attr_metadata_t* const sai_metadata_object_type_sai_lag_attr_t[] = {
@@ -48917,6 +49106,7 @@ const sai_attr_metadata_t* const sai_metadata_object_type_sai_switch_attr_t[] = 
     &sai_metadata_attr_SAI_SWITCH_ATTR_ECMP_HASH,
     &sai_metadata_attr_SAI_SWITCH_ATTR_LAG_HASH,
     &sai_metadata_attr_SAI_SWITCH_ATTR_RESTART_WARM,
+    &sai_metadata_attr_SAI_SWITCH_ATTR_WARM_RECOVER,
     &sai_metadata_attr_SAI_SWITCH_ATTR_RESTART_TYPE,
     &sai_metadata_attr_SAI_SWITCH_ATTR_MIN_PLANNED_RESTART_INTERVAL,
     &sai_metadata_attr_SAI_SWITCH_ATTR_NV_STORAGE_SIZE,
@@ -49066,6 +49256,7 @@ const sai_attr_metadata_t* const sai_metadata_object_type_sai_hostif_packet_attr
     &sai_metadata_attr_SAI_HOSTIF_PACKET_ATTR_HOSTIF_TX_TYPE,
     &sai_metadata_attr_SAI_HOSTIF_PACKET_ATTR_EGRESS_PORT_OR_LAG,
     &sai_metadata_attr_SAI_HOSTIF_PACKET_ATTR_BRIDGE_ID,
+    &sai_metadata_attr_SAI_HOSTIF_PACKET_ATTR_TIMESTAMP,
     NULL
 };
 const sai_attr_metadata_t* const sai_metadata_object_type_sai_tunnel_map_attr_t[] = {
@@ -49880,6 +50071,11 @@ const char* sai_metadata_get_queue_type_name(
         _In_ sai_queue_type_t value)
 {
     return sai_metadata_get_enum_value_name(&sai_metadata_enum_sai_queue_type_t, value);
+}
+const char* sai_metadata_get_router_interface_stat_name(
+        _In_ sai_router_interface_stat_t value)
+{
+    return sai_metadata_get_enum_value_name(&sai_metadata_enum_sai_router_interface_stat_t, value);
 }
 const char* sai_metadata_get_router_interface_type_name(
         _In_ sai_router_interface_type_t value)
@@ -51276,7 +51472,7 @@ const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_PORT 
     .attridend            = SAI_PORT_ATTR_END,
     .enummetadata         = &sai_metadata_enum_sai_port_attr_t,
     .attrmetadata         = sai_metadata_object_type_sai_port_attr_t,
-    .attrmetadatalength   = 83,
+    .attrmetadatalength   = 84,
     .isnonobjectid        = false,
     .isobjectid           = !false,
     .structmembers        = NULL,
@@ -53950,7 +54146,7 @@ const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_SWITC
     .attridend            = SAI_SWITCH_ATTR_END,
     .enummetadata         = &sai_metadata_enum_sai_switch_attr_t,
     .attrmetadata         = sai_metadata_object_type_sai_switch_attr_t,
-    .attrmetadatalength   = 141,
+    .attrmetadatalength   = 142,
     .isnonobjectid        = false,
     .isobjectid           = !false,
     .structmembers        = NULL,
@@ -54358,7 +54554,7 @@ const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_HOSTI
     .attridend            = SAI_HOSTIF_PACKET_ATTR_END,
     .enummetadata         = &sai_metadata_enum_sai_hostif_packet_attr_t,
     .attrmetadata         = sai_metadata_object_type_sai_hostif_packet_attr_t,
-    .attrmetadatalength   = 6,
+    .attrmetadatalength   = 7,
     .isnonobjectid        = false,
     .isobjectid           = !false,
     .structmembers        = NULL,
@@ -57089,6 +57285,7 @@ const sai_attr_metadata_t* const sai_metadata_attr_sorted_by_id_name[] = {
     &sai_metadata_attr_SAI_HOSTIF_PACKET_ATTR_HOSTIF_TX_TYPE,
     &sai_metadata_attr_SAI_HOSTIF_PACKET_ATTR_INGRESS_LAG,
     &sai_metadata_attr_SAI_HOSTIF_PACKET_ATTR_INGRESS_PORT,
+    &sai_metadata_attr_SAI_HOSTIF_PACKET_ATTR_TIMESTAMP,
     &sai_metadata_attr_SAI_HOSTIF_TABLE_ENTRY_ATTR_CHANNEL_TYPE,
     &sai_metadata_attr_SAI_HOSTIF_TABLE_ENTRY_ATTR_HOST_IF,
     &sai_metadata_attr_SAI_HOSTIF_TABLE_ENTRY_ATTR_OBJ_ID,
@@ -57235,6 +57432,7 @@ const sai_attr_metadata_t* const sai_metadata_attr_sorted_by_id_name[] = {
     &sai_metadata_attr_SAI_PORT_ATTR_MULTICAST_STORM_CONTROL_POLICER_ID,
     &sai_metadata_attr_SAI_PORT_ATTR_NUMBER_OF_INGRESS_PRIORITY_GROUPS,
     &sai_metadata_attr_SAI_PORT_ATTR_OPER_STATUS,
+    &sai_metadata_attr_SAI_PORT_ATTR_PKT_TX_ENABLE,
     &sai_metadata_attr_SAI_PORT_ATTR_POLICER_ID,
     &sai_metadata_attr_SAI_PORT_ATTR_PORT_POOL_LIST,
     &sai_metadata_attr_SAI_PORT_ATTR_PORT_VLAN_ID,
@@ -57485,6 +57683,7 @@ const sai_attr_metadata_t* const sai_metadata_attr_sorted_by_id_name[] = {
     &sai_metadata_attr_SAI_SWITCH_ATTR_VLAN_USER_META_DATA_RANGE,
     &sai_metadata_attr_SAI_SWITCH_ATTR_VXLAN_DEFAULT_PORT,
     &sai_metadata_attr_SAI_SWITCH_ATTR_VXLAN_DEFAULT_ROUTER_MAC,
+    &sai_metadata_attr_SAI_SWITCH_ATTR_WARM_RECOVER,
     &sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_ACTION,
     &sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_IS_DEFAULT,
     &sai_metadata_attr_SAI_TABLE_PEERING_ENTRY_ATTR_META_REG,
@@ -57645,7 +57844,7 @@ const sai_attr_metadata_t* const sai_metadata_attr_sorted_by_id_name[] = {
     &sai_metadata_attr_SAI_WRED_ATTR_YELLOW_MIN_THRESHOLD,
     NULL
 };
-const size_t sai_metadata_attr_sorted_by_id_name_count = 871;
+const size_t sai_metadata_attr_sorted_by_id_name_count = 874;
 
 /* SAI notifications struct */
 
@@ -58180,6 +58379,12 @@ int sai_serialize_queue_type(
         _In_ sai_queue_type_t queue_type)
 {
     return sai_serialize_enum(buffer, &sai_metadata_enum_sai_queue_type_t, queue_type);
+}
+int sai_serialize_router_interface_stat(
+        _Out_ char *buffer,
+        _In_ sai_router_interface_stat_t router_interface_stat)
+{
+    return sai_serialize_enum(buffer, &sai_metadata_enum_sai_router_interface_stat_t, router_interface_stat);
 }
 int sai_serialize_router_interface_type(
         _Out_ char *buffer,
@@ -59582,6 +59787,32 @@ int sai_serialize_tam_threshold_breach_event(
     if (ret < 0)
     {
         SAI_META_LOG_WARN("failed to serialize 'value'");
+        return SAI_SERIALIZE_ERROR;
+    }
+    buf += ret;
+    buf += sprintf(buf, "}");
+    return (int)(buf - start_buf);
+}
+int sai_serialize_timespec(
+        _Out_ char *buf,
+        _In_ const sai_timespec_t *timespec)
+{
+    char *start_buf = buf;
+    int ret;
+    buf += sprintf(buf, "{");
+    buf += sprintf(buf, "\"tv_sec\":");
+    ret = sai_serialize_uint64(buf, timespec->tv_sec);
+    if (ret < 0)
+    {
+        SAI_META_LOG_WARN("failed to serialize 'tv_sec'");
+        return SAI_SERIALIZE_ERROR;
+    }
+    buf += ret;
+    buf += sprintf(buf, ",\"tv_nsec\":");
+    ret = sai_serialize_uint32(buf, timespec->tv_nsec);
+    if (ret < 0)
+    {
+        SAI_META_LOG_WARN("failed to serialize 'tv_nsec'");
         return SAI_SERIALIZE_ERROR;
     }
     buf += ret;

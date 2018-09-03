@@ -5,7 +5,7 @@
 fx_handle_t fx_handle;
 sx_acl_pbs_id_t router_pbs_id;
 bool router_pbs_created;
-
+/* extern sai_status_t mlnx_sai_tunnel_to_sx_tunnel_id(sai_object_id_t  sai_tunnel_id, sx_tunnel_id_t *sx_tunnel_id); */
 typedef struct _mlnx_sai_ext_object_id_t {
     sai_object_type_t type;
     uint32_t offset;
@@ -212,24 +212,24 @@ sai_status_t mlnx_create_table_vhost_entry(
     if (vhost_action_id == CONTROL_IN_PORT_TO_TUNNEL_ID)
     {
         MLNX_SAI_LOG_NTC("inside tunnel. CONTROL_IN_PORT_TO_TUNNEL_ID = %d\n", CONTROL_IN_PORT_TO_TUNNEL_ID);
-        if (SAI_STATUS_SUCCESS ==
+        if (SAI_STATUS_SUCCESS !=
             (sai_status =
-                 find_attrib_in_list(attr_count, attr_list, SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID, &attr, &attr_idx)))
-        {
-            if (SAI_STATUS_SUCCESS !=
-                (sai_status = mlnx_object_to_type(attr->oid, SAI_OBJECT_TYPE_TUNNEL, &tunnel_idx, NULL)))
-            {
-                MLNX_SAI_LOG_ERR("Fail to get sx_port id from sai_port_id\n");
-                return SAI_STATUS_INVALID_ATTR_VALUE_0 + attr_idx;
-            }
-            tunnel_id = g_sai_db_ptr->tunnel_db[tunnel_idx].sx_tunnel_id;
-            printf("tunnel sai oid 0x%" PRIx64 ". tunnel mlnx oid 0x%x\n", attr->oid, (uint32_t)tunnel_id);
-        }
-        else
-        {
+                 find_attrib_in_list(attr_count, attr_list, SAI_TABLE_VHOST_ENTRY_ATTR_TUNNEL_ID, &attr, &attr_idx))) {
             MLNX_SAI_LOG_ERR("Didn't recieve mandatory tunnel id attribute\n");
-            return SAI_STATUS_INVALID_PARAMETER;
+            return sai_status;
         }
+        if (SAI_STATUS_SUCCESS !=
+            (sai_status = mlnx_object_to_type(attr->oid, SAI_OBJECT_TYPE_TUNNEL, &tunnel_idx, NULL)))
+        {
+            MLNX_SAI_LOG_ERR("Fail to get sx_port id from sai_port_id\n");
+            return sai_status;
+        }
+        /* if (SAI_STATUS_SUCCESS != (sai_status = mlnx_sai_tunnel_to_sx_tunnel_id(attr->oid, &tunnel_id))) { */
+        /*     MLNX_SAI_LOG_ERR("Faile Didn't recieve mandatory tunnel id attribute\n"); */
+        /*     return sai_status; */
+        /* } */
+        tunnel_id = g_sai_db_ptr->tunnel_db[tunnel_idx].sx_tunnel_id_ipv4;
+        printf("tunnel sai oid 0x%" PRIx64 ". tunnel mlnx oid 0x%x\n", attr->oid, (uint32_t)tunnel_id);
 
         if (SAI_STATUS_SUCCESS ==
             (sai_status =

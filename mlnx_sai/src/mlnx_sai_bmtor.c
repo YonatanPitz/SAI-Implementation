@@ -5,7 +5,7 @@
 fx_handle_t fx_handle;
 sx_acl_pbs_id_t router_pbs_id;
 bool router_pbs_created;
-/* extern sai_status_t mlnx_sai_tunnel_to_sx_tunnel_id(sai_object_id_t  sai_tunnel_id, sx_tunnel_id_t *sx_tunnel_id); */
+
 typedef struct _mlnx_sai_ext_object_id_t {
     sai_object_type_t type;
     uint32_t offset;
@@ -107,10 +107,10 @@ sai_status_t mlnx_create_table_peering_entry(
     // we bind all ports when syncd awaks, or we expose dynamic binding and unbinding
     peering_keys[0] = (void *)&sx_log_port_id;
     peering_params[0] = (void *)&vnet_bitmap;
-    sai_object_list_t in_port_if_list;
-    in_port_if_list.count = 1;
-    in_port_if_list.list = &port_oid;
-    sai_ext_api_initialize(in_port_if_list);
+    //sai_object_list_t in_port_if_list;
+    //in_port_if_list.count = 1;
+    //in_port_if_list.list = &port_oid;
+    //sai_ext_api_initialize();
     // if (add_table_entry_table_peering(peering_keys, NULL, peering_params,
     //                                       peer_action_id, &peer_offset))
     if (fx_table_entry_add(fx_handle, CONTROL_IN_PORT_TABLE_PEERING_ID, peer_action_id, peering_keys, NULL, peering_params, &peer_offset))
@@ -221,7 +221,7 @@ sai_status_t mlnx_create_table_vhost_entry(
         if (SAI_STATUS_SUCCESS !=
             (sai_status = mlnx_object_to_type(attr->oid, SAI_OBJECT_TYPE_TUNNEL, &tunnel_idx, NULL)))
         {
-            MLNX_SAI_LOG_ERR("Fail to get sx_port id from sai_port_id\n");
+            MLNX_SAI_LOG_ERR("Fail to get tunnel_idx from sai_tunnel_id\n");
             return sai_status;
         }
         /* if (SAI_STATUS_SUCCESS != (sai_status = mlnx_sai_tunnel_to_sx_tunnel_id(attr->oid, &tunnel_id))) { */
@@ -556,47 +556,73 @@ sai_status_t mlnx_clear_table_vhost_entry_stats(sai_object_id_t entry_id, uint32
     return SAI_STATUS_SUCCESS;
 }
 
-sai_status_t sai_ext_api_initialize(sai_object_list_t in_port_if_list) {
-    int num_of_ports = in_port_if_list.count;
+sai_status_t sai_ext_api_initialize(/*sai_object_list_t in_port_if_list*/) {
+    MLNX_SAI_LOG_NTC("%s\n", __FUNCTION__);
+    uint32_t num_of_ports = 32;
     sx_port_log_id_t *port_list = (sx_port_log_id_t *)malloc(sizeof(sx_port_log_id_t) * num_of_ports);
-    sai_status_t sai_status;
-    int i;
-    for (i = 0; i < num_of_ports; i++)
-    {
-        if (SAI_STATUS_SUCCESS !=
-            (sai_status = mlnx_object_to_type(in_port_if_list.list[i], SAI_OBJECT_TYPE_PORT, &port_list[i], NULL)))
-        {
-            MLNX_SAI_LOG_ERR("Fail to get sx_port id from sai_port_id 0x%" PRIx64 "\n", in_port_if_list.list[i]);
-            return SAI_STATUS_INVALID_ATTR_VALUE_0;
-        }
-    }
+    /* sai_status_t sai_status; */
+    /* int i; */
+    /* for (i = 0; i < num_of_ports; i++) */
+    /* { */
+    /*     if (SAI_STATUS_SUCCESS != */
+    /*         (sai_status = mlnx_object_to_type(in_port_if_list.list[i], SAI_OBJECT_TYPE_PORT, &port_list[i], NULL))) */
+    /*     { */
+    /*         MLNX_SAI_LOG_ERR("Fail to get sx_port id from sai_port_id 0x%" PRIx64 "\n", in_port_if_list.list[i]); */
+    /*         return SAI_STATUS_INVALID_ATTR_VALUE_0; */
+    /*     } */
+    /* } */
     fx_init(&fx_handle);
     fx_extern_init(fx_handle);
-    sx_status_t rc = fx_pipe_create(fx_handle, FX_IN_PORT, (void *)port_list, num_of_ports);
+    sx_status_t rc = fx_get_bindable_port_list(fx_handle, port_list, &num_of_ports);
     if (rc)
     {
         printf("Error - rc:%d\n", rc);
+        MLNX_SAI_LOG_NTC("%s error %s\n", __FUNCTION__, SX_STATUS_MSG(rc));
+        free(port_list);
         return rc;
     }
+    MLNX_SAI_LOG_NTC("%s got port list %d\n", __FUNCTION__, num_of_ports);
+    rc = fx_pipe_create(fx_handle, FX_IN_PORT, (void *)port_list, num_of_ports);
+    if (rc)
+    {
+        printf("Error - rc:%d\n", rc);
+        free(port_list);
+        return rc;
+    }
+    MLNX_SAI_LOG_NTC("%s\n created pipe", __FUNCTION__);
+    free(port_list);
     return SAI_STATUS_SUCCESS;
 }
 
-sai_status_t sai_ext_api_uninitialize(sai_object_list_t in_port_if_list) {
-    int num_of_ports = in_port_if_list.count;
-    sx_port_log_id_t *port_list = (sx_port_log_id_t*) malloc(sizeof(sx_port_log_id_t) * num_of_ports);
-    sai_status_t sai_status;
-    int i;
-    for (i=0; i<num_of_ports; i++) {
-        if (SAI_STATUS_SUCCESS !=
-            (sai_status = mlnx_object_to_type(in_port_if_list.list[i], SAI_OBJECT_TYPE_PORT, &port_list[i], NULL)))
-        {
-            MLNX_SAI_LOG_ERR("Fail to get sx_port id from sai_port_id 0x%" PRIx64 "\n", in_port_if_list.list[i]);
-            return SAI_STATUS_INVALID_ATTR_VALUE_0;
-        }
+sai_status_t sai_ext_api_uninitialize(/*sai_object_list_t in_port_if_list*/) {
+    /* int num_of_ports = in_port_if_list.count; */
+    /* sx_port_log_id_t *port_list = (sx_port_log_id_t*) malloc(sizeof(sx_port_log_id_t) * num_of_ports); */
+    /* sai_status_t sai_status; */
+    /* int i; */
+    /* for (i=0; i<num_of_ports; i++) { */
+    /*     if (SAI_STATUS_SUCCESS != */
+    /*         (sai_status = mlnx_object_to_type(in_port_if_list.list[i], SAI_OBJECT_TYPE_PORT, &port_list[i], NULL))) */
+    /*     { */
+    /*         MLNX_SAI_LOG_ERR("Fail to get sx_port id from sai_port_id 0x%" PRIx64 "\n", in_port_if_list.list[i]); */
+    /*         return SAI_STATUS_INVALID_ATTR_VALUE_0; */
+    /*     } */
+    /* } */
+    MLNX_SAI_LOG_NTC("%s\n", __FUNCTION__);
+    uint32_t num_of_ports = 32;
+    sx_port_log_id_t *port_list = (sx_port_log_id_t *)malloc(sizeof(sx_port_log_id_t) * num_of_ports);
+    sx_status_t rc = fx_get_bindable_port_list(fx_handle, port_list, &num_of_ports);
+    if (rc)
+    {
+        printf("Error - rc:%d\n", rc);
+        MLNX_SAI_LOG_NTC("%s error %s\n", __FUNCTION__, SX_STATUS_MSG(rc));
+        free(port_list);
+        return rc;
     }
     fx_pipe_destroy(fx_handle, FX_IN_PORT, (void *) port_list, num_of_ports);
     fx_extern_deinit(fx_handle);
     fx_deinit(fx_handle);
+    MLNX_SAI_LOG_NTC("%s\n destroyed pipe", __FUNCTION__);
+    free(port_list);
     return SAI_STATUS_SUCCESS;
 }
 

@@ -27,8 +27,8 @@
 
 #include <saitypes.h>
 
-sai_status_t sai_ext_api_initialize(sai_object_list_t in_port_if_list);
-sai_status_t sai_ext_api_uninitialize(sai_object_list_t in_port_if_list);
+sai_status_t sai_ext_api_initialize(/*sai_object_list_t in_port_if_list*/);
+sai_status_t sai_ext_api_uninitialize(/*sai_object_list_t in_port_if_list*/);
 
 /**
  * @defgroup SAIBMTOR SAI - Extension specific API definitions

@@ -51,7 +51,7 @@ sai_status_t mlnx_create_table_peering_entry(
     flextrum_action_id_t peer_action_id;
     sai_status_t sai_status;
     uint32_t attr_idx;
-    sai_object_id_t port_oid;
+    /* sai_object_id_t port_oid; */
     const sai_attribute_value_t *attr;
     if (SAI_STATUS_SUCCESS ==
         (sai_status =
@@ -63,7 +63,7 @@ sai_status_t mlnx_create_table_peering_entry(
             MLNX_SAI_LOG_ERR("Fail to get sx_port id from sai_port_id\n");
             return SAI_STATUS_INVALID_ATTR_VALUE_0 + attr_idx;
         }
-        port_oid = attr->oid;
+        /* port_oid = attr->oid; */
     }
     else
     {

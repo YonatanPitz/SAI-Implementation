@@ -45,7 +45,7 @@ sai_status_t mlnx_create_table_peering_entry(
 {
     void *peering_keys[1];
     void *peering_params[1];
-    uint16_t peer_offset = 0;
+    sx_acl_rule_offset_t peer_offset = 0;
     uint16_t vnet_bitmap = 0;
     sx_port_log_id_t sx_log_port_id;
     flextrum_action_id_t peer_action_id;
@@ -166,7 +166,7 @@ sai_status_t mlnx_create_table_vhost_entry(
     uint16_t vnet_bitmap_mask;
     uint32_t overlay_dip;
     uint32_t underlay_dip;
-    uint16_t vhost_offset;
+    sx_acl_rule_offset_t vhost_offset;
     sx_acl_pbs_id_t port_pbs_id;
     flextrum_action_id_t vhost_action_id;
     sx_tunnel_id_t tunnel_id;
@@ -357,7 +357,7 @@ sai_status_t mlnx_create_table_vhost_entry(
             (sai_status =
                 find_attrib_in_list(attr_count, attr_list, SAI_TABLE_VHOST_ENTRY_ATTR_PRIORITY, &attr, &attr_idx)))
         {
-            vhost_offset = (uint16_t)attr->u32; // TODO: currently priority == offset, need to implement offset managment
+            vhost_offset = (sx_acl_rule_offset_t)attr->u32; // TODO: currently priority == offset, need to implement offset managment
             
         } else {
             MLNX_SAI_LOG_ERR("priority attribute not supported yet\n");

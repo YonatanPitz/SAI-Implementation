@@ -43306,7 +43306,6 @@ const sai_attr_metadata_t sai_metadata_attr_SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE =
 };
 const sai_object_type_t sai_metadata_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE_allowed_objects[] = {
     SAI_OBJECT_TYPE_ROUTER_INTERFACE,
-    SAI_OBJECT_TYPE_PORT,
 };
 const sai_attr_condition_t sai_metadata_condition_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE_0 = {
     .attrid = SAI_TUNNEL_ATTR_TYPE,
@@ -43316,14 +43315,9 @@ const sai_attr_condition_t sai_metadata_condition_SAI_TUNNEL_ATTR_OVERLAY_INTERF
     .attrid = SAI_TUNNEL_ATTR_TYPE,
     .condition = { .s32 = SAI_TUNNEL_TYPE_IPINIP_GRE }
 };
-const sai_attr_condition_t sai_metadata_condition_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE_2 = {
-    .attrid = SAI_TUNNEL_ATTR_TYPE,
-    .condition = { .s32 = SAI_TUNNEL_TYPE_VXLAN }
-};
 const sai_attr_condition_t* const sai_metadata_conditions_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE[] = {
     &sai_metadata_condition_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE_0,
     &sai_metadata_condition_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE_1,
-    &sai_metadata_condition_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE_2,
     NULL
 };
 const sai_attr_metadata_t sai_metadata_attr_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE = {
@@ -43334,12 +43328,12 @@ const sai_attr_metadata_t sai_metadata_attr_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE = 
     .attrvaluetype                 = SAI_ATTR_VALUE_TYPE_OBJECT_ID,
     .flags                         = (sai_attr_flags_t)(SAI_ATTR_FLAGS_MANDATORY_ON_CREATE|SAI_ATTR_FLAGS_CREATE_ONLY),
     .allowedobjecttypes            = sai_metadata_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE_allowed_objects,
-    .allowedobjecttypeslength      = 2,
+    .allowedobjecttypeslength      = 1,
     .allowrepetitiononlist         = false,
     .allowmixedobjecttypes         = false,
     .allowemptylist                = false,
     .allownullobjectid             = false,
-    .isoidattribute                = (2 > 0),
+    .isoidattribute                = (1 > 0),
     .defaultvaluetype              = SAI_DEFAULT_VALUE_TYPE_NONE,
     .defaultvalue                  = NULL,
     .defaultvalueobjecttype        = SAI_OBJECT_TYPE_NULL,
@@ -43350,8 +43344,8 @@ const sai_attr_metadata_t sai_metadata_attr_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE = 
     .enummetadata                  = NULL,
     .conditiontype                 = SAI_ATTR_CONDITION_TYPE_OR,
     .conditions                    = sai_metadata_conditions_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE,
-    .conditionslength              = 3,
-    .isconditional                 = (3 != 0),
+    .conditionslength              = 2,
+    .isconditional                 = (2 != 0),
     .validonlytype                 = SAI_ATTR_CONDITION_TYPE_NONE,
     .validonly                     = NULL,
     .validonlylength               = 0,
@@ -51397,12 +51391,6 @@ const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_
     .attrmetadata        = &sai_metadata_attr_SAI_TABLE_VHOST_ENTRY_ATTR_PORT_ID,
     .structmember        = NULL,
 };
-const sai_rev_graph_member_t sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_32 = {
-    .objecttype          = SAI_OBJECT_TYPE_PORT,
-    .depobjecttype       = SAI_OBJECT_TYPE_TUNNEL,
-    .attrmetadata        = &sai_metadata_attr_SAI_TUNNEL_ATTR_OVERLAY_INTERFACE,
-    .structmember        = NULL,
-};
 const sai_rev_graph_member_t* const sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_members[] = {
     &sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_0,
     &sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_1,
@@ -51436,7 +51424,6 @@ const sai_rev_graph_member_t* const sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_
     &sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_29,
     &sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_30,
     &sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_31,
-    &sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_member_32,
     NULL,
 };
 sai_status_t sai_metadata_generic_create_SAI_OBJECT_TYPE_PORT(
@@ -51478,7 +51465,7 @@ const sai_object_type_info_t sai_metadata_object_type_info_SAI_OBJECT_TYPE_PORT 
     .structmembers        = NULL,
     .structmemberscount   = 0,
     .revgraphmembers      = sai_metadata_SAI_OBJECT_TYPE_PORT_rev_graph_members,
-    .revgraphmemberscount = 33,
+    .revgraphmemberscount = 32,
     .create               = sai_metadata_generic_create_SAI_OBJECT_TYPE_PORT,
     .remove               = sai_metadata_generic_remove_SAI_OBJECT_TYPE_PORT,
     .set                  = sai_metadata_generic_set_SAI_OBJECT_TYPE_PORT,

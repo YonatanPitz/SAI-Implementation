@@ -1564,7 +1564,7 @@ typedef struct _mlnx_samplepacket_t {
 #define MLNX_TUNNEL_MAP_MAX           8
 #define MLNX_TUNNEL_MAP_ENTRY_INVALID 0
 #define MLNX_TUNNEL_MAP_ENTRY_MIN     1
-#define MLNX_TUNNEL_MAP_ENTRY_MAX     50
+#define MLNX_TUNNEL_MAP_ENTRY_MAX     1024
 #define MLNX_TUNNEL_TO_TUNNEL_MAP_MAX 1000
 
 typedef struct _mlnx_tunneltable_t {
